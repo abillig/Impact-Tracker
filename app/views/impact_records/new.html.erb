@@ -1,0 +1,18 @@
+
+<div class="panel-body">
+    <div class="col-sm-5">
+        <div class="container-fluid">
+          <h1> New Impact </h1>
+<%= bootstrap_form_for @impact_record do |f| %>
+  <%= f.text_field :article, label: 'Article Name', value: @article.headline, readonly: true%>
+  <%= f.select(:impact_type) do %>
+    <% @impact_types.each do |impact_type| -%>
+      <%= content_tag(:option, impact_type.name, value: impact_type.id) %>
+    <% end%>
+  <% end%>
+  <%= f.text_area :impact, label: 'Description' %><br />
+  <%= f.submit 'Add Impact' %>
+<% end %>
+</end>
+</end>
+</end>

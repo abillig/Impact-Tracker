@@ -1,0 +1,16 @@
+Please sign in!
+
+<%=flash[:message].html_safe unless flash[:message].blank? %>
+
+<%= form_tag "/sessions" do %><br>
+
+<p>
+  <div class="col-sm-5">
+
+<%= bootstrap_form_tag url: '/sessions' do |f| %>
+  <%= f.text_field :name %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Sign In'  %>
+<% end %>
+</div>
+<% end %>

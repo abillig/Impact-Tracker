@@ -1,0 +1,24 @@
+<div class="panel-body">
+	<div class="media">
+  		<a class="media-left" href="#"></a>
+		<div class="media-body">
+			<dl class="dl-horizontal">
+				<h1>Welcome, <%=@user.name%></h1>
+        <h2>Your Articles: </h2>
+        <%@user.articles.uniq.each do |article| %>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+              <div class="panel-body"><h3><a href=<%=article_path(article.id)%>><%=article.headline%></a></h3></div>
+                <div class="panel-footer">
+                <%article.impact_types.distinct.each do |impact|%>
+                <li><strong><%=impact.name%></strong><br></li>
+                <%end%>
+              </ul>
+              </div>
+            </div>
+          </div>
+        <%end%>
+			</dl>
+		</div>
+	</div>
+</div>

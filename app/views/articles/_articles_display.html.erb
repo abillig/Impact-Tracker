@@ -1,0 +1,5 @@
+  <%articles.each do |article|%>
+  <div class="col-sm-4">
+    <%= render partial: "article_display", locals: { article: article } %>
+    </div>
+  <%end%>
