@@ -1,0 +1,11 @@
+  <div class="col-lg-1">
+    <div class="btn-group" id="reporter_dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
+        <ul class="dropdown-menu scrollable-menu" role="menu">
+          <%reporters.each do |reporter|%>
+          <li><a href=<%=reporter_search_path(reporter.id)%>><%=reporter.name%></a></li>
+          <%end%>
+
+        </ul>
+      </div>
+  </div>

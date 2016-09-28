@@ -1,0 +1,26 @@
+
+<div class="panel-body">
+    <div class="col-sm-5">
+        <div class="container-fluid">
+          <h1> Add an Article </h1>
+<%= form_for @article do |f| %>
+  <%= f.label :headline %>:
+  <%= f.text_field :headline %><br />
+
+  <%= f.label :url, 'url' %>:
+  <%= f.text_field :url %><br />
+
+  <%= f.label :info %>:
+  <%= f.text_field :info %><br />
+
+  <%= f.label :date %>:
+  <%= f.text_field :date %><br />
+
+  <label>Reporter</label>
+  <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}) %>
+
+  <%= f.submit %>
+<% end %>
+</end>
+</end>
+</end>

@@ -1,0 +1,18 @@
+<h2><a href=<%=@article.url%>><%=@article.headline%></a></h2>
+  <div id="sub_head">
+    By <a href=<%=reporter_path(@article.reporter_id)%>><%=@article.reporter_name%></a>
+    | <%=@article.date%>
+  </div>
+
+  <%@article.impacts.distinct.each do |impact|%>
+  <%=impact.description%><br>
+  <strong>Impacts: </strong>
+  <%impact.impact_types.each_with_index do |impact_type, i|%>
+    <%if i+1==impact.impact_types.length%>
+      <strong><%="#{impact_type.name}"%></strong>
+    <%else%>
+      <strong><%="#{impact_type.name}, "%></strong>
+    <%end%>
+  <%end%>
+
+  <%end%>

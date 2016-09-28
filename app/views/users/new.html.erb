@@ -1,0 +1,13 @@
+<div class="panel-body">
+    <div class="col-sm-5">
+        <div class="container-fluid">
+          <%= bootstrap_form_for(@user) do |f| %>
+            <%= f.text_field :name, required: true, label: 'Name (first and last)' %>
+            <%= f.text_field :email, required: false, label: 'Email' %>
+            <%= f.text_field :bio, required: false, label: 'Bio (optional)' %>
+            <%= f.password_field :password, required: true %>
+            <%= f.submit class: "btn btn-primary pull-right" %>
+          <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+#sub_head {
+  display: block;
+}
+
+.search_header{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#selector_text{
+   margin-right: auto;
+   margin-left: auto;
+}
+
+.vertical-center {
+  // min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  // min-height: 100vh; /* These two lines are counted as one :-)       */
+text-align: center;
+
+  display: flex;
+  // align-items: center;
+}
+
+#reporter_dropdown{
+  margin-left: -15px;
+  margin-top: 13%;
+}
+
+.impact_list{
+  display: none;
+}

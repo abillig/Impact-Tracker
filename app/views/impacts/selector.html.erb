@@ -1,0 +1,22 @@
+<div id="selector_elements">
+  <div class="col-sm-6">
+    <div class="jumbotron vertical-center">
+    <div id="selector_text">
+    <h3>Search Existing Articles</h3>
+  <%= form_tag "/impact_search", :method => 'get', class: "navbar-form navbar-left" do %>
+    <div class="form-group">
+      <input type="text" name="search" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <%end%>
+      </div>
+    </div>
+</div>
+
+
+    <div class="col-sm-6">
+        <div class="jumbotron vertical-center">
+    <h3 id="selector_text"><br>Or Add A New Article<br><br></h3>
+  </div>
+</div>
+</div>
