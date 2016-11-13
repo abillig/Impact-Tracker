@@ -1,4 +1,7 @@
 class ImpactsController < ApplicationController
+  # before_action :impact_add_search, only: [:index, :create, :update]
+
+
 
   def new
     @impact = Impact.new
@@ -10,9 +13,12 @@ class ImpactsController < ApplicationController
   end
 
   def article_selector
-    byebug
     @reporters = Reporter.all
     @articles = Article.search(params[:search])
   end
+
+  def impact_add_search
+    # @article = Article.search(params[:search]).first
+end
 
 end

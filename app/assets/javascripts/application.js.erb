@@ -25,6 +25,19 @@ var showImpactList = function(num){
   }
 
 };
+
+
+var searchResults = function(){$("#selector_text").on("click", function(){
+   $.ajax({
+     type: "GET",
+     url: "/impact_search"
+  });
+})};
+
+
+
+
+
 //
 // document.getElementsByClassName('impact_count');
 // $('.impact_count').click(function(){console.log('hello')});

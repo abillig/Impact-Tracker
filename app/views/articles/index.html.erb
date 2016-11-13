@@ -4,7 +4,7 @@
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
       <ul class="dropdown-menu scrollable-menu" role="menu">
         <%@reporters.each do |reporter|%>
-        <li><a href=<%=reporter_search_path(reporter.id)%>><%=reporter.name%></a></li>
+        <li><a href=<%=reporter_search_path(reporter.id)%> data-remote="true"><%=reporter.name%></a></li>
         <%end%>
 
       </ul>
@@ -14,4 +14,6 @@
 </div>
 <br><br><br>
 
-<%= render partial: "articles_display", locals: { articles: @articles } %>
+<div id="article_search_results"></div>
+
+ <!-- <%= render partial: "articles_display", locals: { articles: @articles } %> -->
