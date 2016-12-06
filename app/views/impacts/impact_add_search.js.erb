@@ -1,0 +1,1 @@
+$('#article_choices').html("<%= j render(:partial => './articles/articles_display_add', :locals => { articles: Article.search(params[:search])}) %>");

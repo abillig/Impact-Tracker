@@ -1,5 +1,4 @@
-<h1><%=reporter.name%></h1>
-  <%reporter.articles.distinct.each do |article|%>
+  <%Reporter.find(params[:id].to_i).articles.distinct.each do |article|%>
     <div class="col-sm-4">
       <%= render partial: "./articles/article_display", locals: { article: article } %>
     </div>

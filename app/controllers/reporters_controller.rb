@@ -9,8 +9,8 @@ class ReportersController < ApplicationController
   end
 
   def search_results
-    @reporters = Reporter.all
-    @reporter = Reporter.find(params[:id])
+    # @reporters = Reporter.all
+    # @reporter = Reporter.find(params[:id])
   end
 
 end

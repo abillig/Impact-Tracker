@@ -3,6 +3,7 @@
 @import "bootstrap";
 #sub_head {
   display: block;
+  margin-bottom: 3%;
 }
 
 .search_header{
@@ -14,6 +15,70 @@
 #selector_text{
    margin-right: auto;
    margin-left: auto;
+}
+
+.label-checkbox {
+  width: 40%;
+  font: sans-serif;
+}
+
+#article_display_container{
+  height: 30%;
+}
+
+#article_headline{
+  font-size: 50px;
+}
+
+#edit_button{
+  float: right;
+  width: 10%;
+  background: white;
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  border-style: solid;
+      border-width: 1px;
+      border-color: #d3d3d3;
+}
+
+#edit_button:hover {
+  background: #d3d3d3;
+  color: white;
+}
+
+#impact_show_icon{
+  width: 80%;
+}
+
+#impact_sidebar{
+  width: 25%;
+  display: inline-block;
+}
+
+#impacts_container{
+  position: absolute; 
+  width: 70%;
+  display: inline-block;
+}
+// body{
+//   font-family: sans-serif;
+// }
+
+.headline{
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 3%;
+}
+
+.subhead{
+  font-size: 4.0vh;
+  text-align: center;
+}
+
+#impact_bubble_date{
+  float: right;
+  margin-top: -.5%;
 }
 
 .vertical-center {
@@ -32,4 +97,88 @@ text-align: center;
 
 .impact_list{
   display: none;
+}
+
+.icon{
+  width: 5%;
+  float: left;
+  position: relative;
+    top: 500%;
+    vertical-align: middle;
+
+}
+
+.impact_bubbles{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.impact_bubbles.small{
+  margin-left: 5%;
+  display: inline-block;
+  width: 100%;
+}
+
+.impact_bubble.small{
+  width: 100%;
+}
+
+.impact_bubble.small h4{
+  color: black;
+}
+
+.impact_bubble.small img{
+  // width: 10%;
+  width: 50px;
+  margin-right: 10%;
+  margin-left: 3%;
+  padding: 1%;
+}
+
+.impact_bubble img {
+  width: 50px;
+}
+
+#article_header{
+  margin-left: 2%;
+  text-align: center;
+}
+
+.impact_bubble{
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1.5%;
+  box-sizing: border-box;
+ -webkit-border-radius: 20px;
+ -moz-border-radius: 20px;
+ border-radius: 20px;
+ background: -webkit-linear-gradient(#bddfeb,#d6ebf2, #bddfeb);
+
+  // background: -webkit-linear-gradient(#ff7f7f,#ff9999, #ff7f7f);
+  // width: 80%;
+
+}
+
+.impact_bubble_text{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+.impact_package{
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 1%;
+  width: 40%;
+  margin-left:3%;
+}
+
+.impact_package.large{
+  width: 100%;
+}
+
+#article_choices{
+  float: left;
 }

@@ -7,7 +7,7 @@
   <%= f.text_field :article, label: 'Article Name', value: @article.headline, readonly: true%>
   <%= f.select(:impact_type) do %>
     <% @impact_types.each do |impact_type| -%>
-      <%= content_tag(:option, impact_type.name, value: impact_type.id) %>
+      <%= content_tag(:option, impact_type.name, value: impact_type.name) %>
     <% end%>
   <% end%>
   <%= f.text_area :impact, label: 'Description' %><br />

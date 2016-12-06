@@ -1,0 +1,22 @@
+<h1>Search Impacts</h1>
+
+<%= form_tag "/impact_search", method: "get" , remote: true, class: "navbar-form navbar-left"  do %>
+  <%= label_tag(:q, "Between") %>
+  <%= date_field(:impact, :start) %>
+  <strong>and</strong>
+  <%= date_field(:impact, :end) %>
+  <br><br>
+  <strong><h3>Select impact type(s)</h3></strong>
+  <br>
+  <div id="impact_checkboxes">
+  <%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
+  <%= b.label class:"label-checkbox" do%>
+        <%=b.check_box + b.text%>
+       <%end%>
+<%end%>
+</div>
+<br>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div id="impact_search_results"></div>

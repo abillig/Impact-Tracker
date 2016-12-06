@@ -1,0 +1,13 @@
+
+<div id="impact_sidebar">
+<img id="impact_show_icon" src="<%=ImpactType.find(params[:id]).image%>">
+<br>
+<%=ImpactType.find(params[:id]).name%>
+</div>
+
+<div id="impacts_container">
+  <%=render(:partial => './impacts/impacts_display', :locals => { impacts: ImpactType.find(params[:id]).impacts })%>
+  <!-- <%ImpactType.find(params[:id]).impacts.each do |impact|%>
+  <%=impact.description%>
+  <%end%> -->
+</div>

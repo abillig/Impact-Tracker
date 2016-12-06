@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926202840) do
+ActiveRecord::Schema.define(version: 20161201203130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160926202840) do
     t.string   "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "project_id"
   end
 
   create_table "impact_records", force: :cascade do |t|
@@ -41,9 +42,11 @@ ActiveRecord::Schema.define(version: 20160926202840) do
   end
 
   create_table "impact_types", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "impacts", force: :cascade do |t|
@@ -51,6 +54,20 @@ ActiveRecord::Schema.define(version: 20160926202840) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "impact_date"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "publications", force: :cascade do |t|
+    t.string   "name"
+    t.string   "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reporter_articles", force: :cascade do |t|
@@ -63,8 +80,10 @@ ActiveRecord::Schema.define(version: 20160926202840) do
   create_table "reporters", force: :cascade do |t|
     t.string   "name"
     t.string   "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "image"
+    t.integer  "publication_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,6 +96,8 @@ ActiveRecord::Schema.define(version: 20160926202840) do
     t.string   "image"
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "publication_id"
+    t.string   "title"
   end
 
 end

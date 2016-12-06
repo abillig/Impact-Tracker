@@ -7,13 +7,26 @@ class ImpactRecordsController < ApplicationController
 
   def create
     article = Article.find_by(headline: params[:impact_record][:article])
-    impact_type = ImpactType.find(params[:impact_record][:impact_type].to_i)
+      if params[:impact_record][:impact_type]
+        impact_type = ImpactType.find_by(name: params[:impact_record][:impact_type])
+      else
+        impact_type = ImpactType.find(params[:impact_record][:impact_type].to_i)
+      end
     impact = Impact.create(description: params[:impact_record][:impact])
-    byebug
     impact.save
+# note that I'm including the below line because impact_type wasn't being recorded.
+# remove the line if it breaks anything else.
+    impact_type = ImpactType.find_by(name: params[:impact_record][:impact_type])
+byebug
     impact_record = ImpactRecord.create({article_id: article.id, impact_type_id: impact_type.id, impact_id: impact.id})
     impact_record.save
     redirect_to article_path(article)
+  end
+
+  def add_from_home
+    @impact_record = ImpactRecord.new
+    @impact_type = ImpactType.find(params[:impact_id])
+    @article=Article.find(params[:article])
   end
 
 end

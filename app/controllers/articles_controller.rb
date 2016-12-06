@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  # before_action :search, only: [:index, :create, :update]
 
   def index
     @articles = Article.all
@@ -20,12 +21,17 @@ class ArticlesController < ApplicationController
       info: params[:article][:info],
       date: params[:article][:date]})
     article.reporters << Reporter.find_by(name: params[:article][:reporters])
+    redirect_to article_path(article.id)
   end
 
   def search
-    @articles = Article.search(params[:search])
-    @reporters = Reporter.all
+    # @articles = Article.search(params[:search])
+    # @reporters = Reporter.all
   end
+
+  def edit
+  end
+
 
 end
 

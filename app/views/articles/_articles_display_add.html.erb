@@ -1,0 +1,13 @@
+<%articles.each do |article|%>
+<div class="col-sm-4">
+  <div id="article_display_container">
+    <%imp_id = params[:impact_id]%>
+    <a href="<%=add_from_home_path(article.id, imp_id)%>">
+      <div class="panel panel-default">
+          <div class="panel-body"><h4><%=article.headline%></h4>
+          <h5><%=article.reporters.pluck('name').uniq.first%></h5></div>
+        </div>
+      </div>
+    </a>
+  </div>
+<%end%>
