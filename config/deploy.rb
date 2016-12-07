@@ -4,7 +4,7 @@ lock '3.6.1'
 set :application, 'Impact-Tracker'
 set :repo_url, 'https://github.com/abillig/Impact-Tracker.git'
 set :branch, 'master' 
-set :deploy_to, '/home/avram/Impact-Tracker/public' 
+set :deploy_to, '/home/avram/Impact-Tracker' 
 
 set :rbenv_type, :user
 set :rbenv_ruby, "2.3.0"
