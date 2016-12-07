@@ -25,7 +25,7 @@ server '159.203.128.138', user: 'avram', roles: %w{app web db}, primary: true
 # role :db,  %w{deploy@example.com}
 #role :app, %w{avram@159.203.128.138}
 #role :web, %w{avram@159.203.128.138}
-#role :db, %w{impacttracker@159.203.128.138}
+#role :db, %w{avram@159.203.128.138}
 
 
 # Configuration
