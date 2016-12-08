@@ -140,7 +140,7 @@ ReporterArticle.connection
 #   {impact_id: 61, impact_type_id: 1, article_id: 15},
 # ])
 # Publication.create!([{name: "The Journal News", website: "http://lohud.com"}])
-# Reporter.create!([{name: "David Robinson", bio: nil, image: "/assets/robinson.jpg", publication_id: 1},
+# Reporter.create!([{name: "Akiko Matsuda", bio: nil, image: "/assets/matsuda_akiko.jpg", publication_id: 1}, {name: "David McKay Wilson", bio: nil, image: "/assets/wilson_david.jpg", publication_id: 1},{name: "Thomas Zambito", bio: nil, image: "/assets/zambito_thomas.jpg", publication_id: 1},{name: "Jorge Fitz-Gibbon", bio: nil, image: "/assets/fitzgibbon_jorge.jpg", publication_id: 1}])
 #   {name: "Liz Johnson", bio: nil, image: nil, publication_id: 1},
 #   {name: "David Robinson", bio: nil, image: "/assets/robinson.jpg", publication_id: 1},
 #   {name: "Akiko Matsuda", bio: nil, image: "/assets/matsuda_akiko.jpg", publication_id: 1},

@@ -1,0 +1,13 @@
+<div class="panel-body">
+    <div class="col-sm-5">
+        <div class="container-fluid">
+          <%= bootstrap_form_for(@reporter) do |f| %>
+            <%= f.text_field :name, required: true, label: 'Name (first and last)' %>
+            <%= f.text_field :bio, required: false, label: 'Bio (optional)' %>
+            <%= f.text_field :image, required: false, label: 'Image (url)' %>
+            <%= f.select :publication_id, options_for_select(@publications.map{|publication|[publication.name, publication.id]})%>
+            <%= f.submit class: "btn btn-primary pull-right" %>
+          <% end %>
+        </div>
+    </div>
+</div>
