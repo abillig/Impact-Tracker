@@ -6,6 +6,7 @@
             <%= f.text_field :email, required: false, label: 'Email' %>
             <%= f.text_field :bio, required: false, label: 'Bio (optional)' %>
             <%= f.password_field :password, required: true %>
+            <%= f.select :publication_id, options_for_select(@publications.map{|publication|[publication.name, publication.id]})%>
             <%= f.submit class: "btn btn-primary pull-right" %>
           <% end %>
         </div>

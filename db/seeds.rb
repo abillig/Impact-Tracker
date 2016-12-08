@@ -139,10 +139,8 @@ ReporterArticle.connection
 #   {impact_id: 60, impact_type_id: 5, article_id: 13},
 #   {impact_id: 61, impact_type_id: 1, article_id: 15},
 # ])
-# Publication.create!([
-#   {name: "The Journal News", website: "http://lohud.com"}
-# ])
-# Reporter.create!([
+# Publication.create!([{name: "The Journal News", website: "http://lohud.com"}])
+# Reporter.create!([{name: "David Robinson", bio: nil, image: "/assets/robinson.jpg", publication_id: 1},
 #   {name: "Liz Johnson", bio: nil, image: nil, publication_id: 1},
 #   {name: "David Robinson", bio: nil, image: "/assets/robinson.jpg", publication_id: 1},
 #   {name: "Akiko Matsuda", bio: nil, image: "/assets/matsuda_akiko.jpg", publication_id: 1},
