@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def create
-        byebug
     @user = User.create(user_params)
     session[:user_id] = @user.id
     redirect_to root_url
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    byebug
     params[:user][:publication] = Publication.where(name: params[:user][:publication])
     params.require(:user).permit(params[:user].keys)
   end
