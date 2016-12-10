@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @reporters = Reporter.all
+    # limit reporters for dropdown to those of relevant publication
+    @reporters = Reporter.reporters_from(current_user.publication)
   end
 
   def show
@@ -12,7 +13,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-    @reporters = Reporter.all
+    @reporters = Reporter.reporters_from(current_user.publication)
     @projects = Project.all
   end
 
@@ -32,6 +33,11 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    #only allow editors or article authors to edit articles
+    if current_user.is_reporter && @article.reporter_names.include?(current_user.name) == false
+      flash[:notice] = "Only an article's reporters can edit the article."
+      redirect_to article_path(@article)
+    end
       @reporters = Reporter.all
       @projects = Project.all
   end
