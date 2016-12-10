@@ -1,1 +1,15 @@
-placeholder for edit page 
+
+    <div class="col-sm-8">
+          <h1> Edit Article </h1>
+
+<%= bootstrap_form_for @article do |f| %>
+  <%= f.text_field :headline %>
+  <%= f.text_field :url %>
+  <%= f.text_field :info %>
+  <%= f.text_field :date %>
+  <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}, @article.reporters.first.name) %>
+  <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}) %>
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

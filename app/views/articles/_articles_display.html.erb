@@ -1,22 +1,19 @@
   <%articles.each do |article|%>
+  <a href=<%=article_path(article.id)%>>
   <div class="col-sm-4">
     <div id="article_display_container">
-      <div class="panel panel-default">
-          <div class="panel-body"><h3><a href=<%=article_path(article.id)%>><%=article.headline%></a></h3>
-          <h4><a href=<%=reporter_path(article.reporter_id)%>><%=article.reporters.pluck('name').uniq.first%></a></h4></div>
-            <div class="panel-footer">
-              <div class="impact_count" id="impact_count<%=article.id%>" onclick='showImpactList(<%=article.id%>)'>
-                <strong><%=article.impact_types.distinct.length%>
-                <%=article.impact_types.distinct.length > 1 ? "Impacts" : "Impact"%></strong>
-              </div>
-              <div class="impact_list" id="impact_list<%=article.id%>">
-                <%article.impact_types.distinct.each do |impact|%>
-                <li><%=impact.name%><br></li>
-                <%end%>
-                <strong><a href=<%=new_impact_record_path(article.id)%>><em>Add Impact</em></a></strong> <button type="submit" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-              </div>
-          </div>
+    <div id="article_search_article" class="panel panel-default">
+        <div class="panel-body">
+          <h4><%=article.headline%></h4>
+        <h5><%=article.reporters.pluck('name').uniq.first%></h5>
+        <div id="impact_count">
+          <%=article.impact_records.length%>
+          <%=article.impact_records.length > 1 ? "Impacts" : "Impact"%>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
+</div>
+</a>
+
   <%end%>

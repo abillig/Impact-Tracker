@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @reporters = Reporter.all
+    @projects = Project.all
   end
 
   def create
@@ -30,6 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
+      @reporters = Reporter.all
+      @projects = Project.all
   end
 
 

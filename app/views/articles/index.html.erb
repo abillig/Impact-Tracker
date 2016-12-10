@@ -1,5 +1,5 @@
 <div class="dropdown_and_search">
-<div class="col-lg-1">
+<div class="col-sm-1">
   <div class="btn-group" id="reporter_dropdown">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
       <ul class="dropdown-menu scrollable-menu" role="menu">
@@ -14,6 +14,45 @@
 </div>
 <br><br><br>
 
-<div id="article_search_results"></div>
 
  <!-- <%= render partial: "articles_display", locals: { articles: @articles } %> -->
+ <!-- <%= form_tag "/search", :method => 'get', remote: true do %>
+
+ <div class="input-group">
+   <div class="input-group-btn">
+     <button type="submit" class="btn btn-primary">Submit</button>
+           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
+           <ul class="dropdown-menu scrollable-menu" role="menu">
+             <%@reporters.each do |reporter|%>
+             <li><a href=<%=reporter_search_path(reporter.id)%> data-remote="true"><%=reporter.name%></a></li>
+             <%end%>
+           </ul>
+
+   </div>
+   <input type="text" class="form-control"  placeholder="Search articles">
+ </div>
+
+   <%end%> -->
+
+
+<div id="article_search_results">
+  <%@articles.each do |article|%>
+  <a href=<%=article_path(article.id)%>>
+  <div class="col-sm-4">
+    <div id="article_display_container">
+    <div id="article_search_article" class="panel panel-default">
+        <div class="panel-body">
+          <h4><%=article.headline%></h4>
+        <h5><%=article.reporters.pluck('name').uniq.first%></h5>
+        <div id="impact_count">
+          <%=article.impact_records.length%>
+          <%=article.impact_records.length > 1 ? "Impacts" : "Impact"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </a>
+
+  <%end%>
+</div>
