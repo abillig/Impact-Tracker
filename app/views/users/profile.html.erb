@@ -3,9 +3,11 @@
   		<a class="media-left" href="#"></a>
 		<div class="media-body">
 			<dl class="dl-horizontal"> -->
-				<h1>Welcome, <%=@user.name%></h1>
-        <h4>Your Articles: </h4>
-				<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
+				<h2>Welcome, <%=@user.name%></h2>
+				<%if current_user.title == "Article"%>
+				  <h4>Your Articles: </h4>
+					<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
+				<%end%>
 			<!-- </dl>
 		</div>
 	</div>

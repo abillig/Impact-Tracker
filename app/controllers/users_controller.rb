@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     else
       @user = User.new
       @publications = Publication.all
+      @positions = Position.all
     end
   end
 

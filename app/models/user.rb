@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :publication
+  belongs_to :position
   has_secure_password
 
   def reporter
@@ -10,8 +11,12 @@ class User < ApplicationRecord
     self.reporter.first.articles
   end
 
+  def title
+    self.position.name
+  end
+
   def is_reporter
-    self.title == "Reporter" 
+    self.title == "Reporter"
   end
 
 end
