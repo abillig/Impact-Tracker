@@ -48,6 +48,6 @@
   <%end%> -->
 
   <%end%>
-  <%if @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
+  <%if current_user.title != "Reporter" || @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
     <h5 class="subhead"><strong><a href=<%=new_impact_record_path(@article.id)%>><em>Add Impact</em></a></strong></h5>
   <%end%>
