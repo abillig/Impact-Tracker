@@ -3,6 +3,10 @@ class ImpactRecordsController < ApplicationController
     @impact_record = ImpactRecord.new
     @impact_types = ImpactType.all.uniq
     @article=Article.find(params[:format])
+    if current_user.is_reporter && @article.reporter_names.include?(current_user.name) == false
+      flash[:notice] = "You can only add impacts to articles you have authored. Please contact the article's reporter to add an impact."
+      redirect_to article_path(@article)
+    end
   end
 
   def create
