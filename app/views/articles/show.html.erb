@@ -1,3 +1,11 @@
+<% if flash[:notice] %>
+  <% if flash[:notice] == "Impact added!"%>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+  <%else%>
+    <div class="alert alert-warning"><%= flash[:notice] %></div>
+    <%end%>
+<% end %>
+
 <%if @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
 <div id="edit_button"><a href="<%=edit_article_path%>">Edit this article</a></div>
 <br>

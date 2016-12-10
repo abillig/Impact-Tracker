@@ -20,4 +20,12 @@ class Article < ApplicationRecord
     Article.where("headline like ?", "%#{term}%")
   end
 
+  def publication
+    self.reporters.first.publication
+  end
+
+  def reporter_names 
+    self.reporters.map{|reporter| reporter.name}
+  end
+
 end

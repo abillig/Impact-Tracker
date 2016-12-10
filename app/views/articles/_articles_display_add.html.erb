@@ -1,4 +1,5 @@
 <%articles.each do |article|%>
+<%if article.reporters.map{|reporter|reporter.name}.include?(current_user.name) || current_user.title == "Editor"%>
 <div class="col-sm-4">
   <div id="article_display_container">
     <%imp_id = params[:impact_id]%>
@@ -10,4 +11,5 @@
       </div>
     </a>
   </div>
+  <%end%>
 <%end%>

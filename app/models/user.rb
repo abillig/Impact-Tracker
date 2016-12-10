@@ -10,4 +10,8 @@ class User < ApplicationRecord
     self.reporter.first.articles
   end
 
+  def is_reporter
+    self.title == "Reporter" 
+  end
+
 end
