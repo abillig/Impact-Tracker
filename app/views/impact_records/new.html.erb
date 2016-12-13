@@ -10,7 +10,8 @@
       <%= content_tag(:option, impact_type.name, value: impact_type.name) %>
     <% end%>
   <% end%>
-  <%= f.text_area :impact, label: 'Description' %><br />
+  <%= f.date_field :impact_id, label: 'Impact Date', required: true %>
+  <%= f.text_area :impact, label: 'Description', required: true %><br />
   <%= f.submit 'Add Impact' %>
 <% end %>
 </end>

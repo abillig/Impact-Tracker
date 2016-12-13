@@ -28,7 +28,9 @@
 <div class="impact_bubble article">
   <img class="icon" src=<%=impact.impact_types.first.image%>></img>
   <!-- <%=impact.impact_types.first.name%> -->
-<em><h6 id="impact_bubble_date"><%=impact.created_at.strftime("%m/%d/%Y")%></h6></em>
+  <%if impact.impact_date%>
+<em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
+<%end%>
 
 <!-- <br> -->
 

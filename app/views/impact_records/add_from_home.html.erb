@@ -5,7 +5,8 @@
 <%= bootstrap_form_for @impact_record do |f| %>
   <%= f.text_field :article, label: 'Article Name', value: @article.headline, readonly: true%>
   <%= f.text_field :impact_type, label: 'Impact Type', value: @impact_type.name, readonly: true%>
-  <%= f.text_area :impact, label: 'Description' %><br />
+  <%= f.date_field :impact_id, label: 'Impact Date', required: true %>
+  <%= f.text_area :impact, label: 'Description', required: true %><br />
   <%= f.submit 'Add Impact' %>
 <% end %>
 </end>
