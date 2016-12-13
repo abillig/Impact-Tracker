@@ -26,7 +26,14 @@ end
   def search
     impact_types_array = params[:impact][:impact_types].map{|type_id|type_id.to_i}
     impacts_of_specified_types = ImpactRecord.collect_records_having_these_impact_types(impact_types_array).flatten
-    relevant_impacts = impacts_of_specified_types.map{|impact_record| impact_record.impact}
+    #now to select out for relevant publication
+    publication_impacts = impacts_of_specified_types.select do |impact|
+      #have to include conditional b/c for now not all impacts have users. can remove for production.
+      if impact.impact.user_id
+        impact.impact.user.publication == current_user.publication
+      end
+    end
+    relevant_impacts = publication_impacts.map{|impact_record| impact_record.impact}
     @relevant_dates = date_selector(relevant_impacts, params[:impact][:start], params[:impact][:end])
   end
 

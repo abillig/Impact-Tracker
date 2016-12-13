@@ -21,7 +21,7 @@ class ImpactRecordsController < ApplicationController
             else
               impact_type = ImpactType.find(params[:impact_record][:impact_type].to_i)
             end
-          impact = Impact.create(description: params[:impact_record][:impact], impact_date: params[:impact_record][:impact_id])
+          impact = Impact.create(description: params[:impact_record][:impact], impact_date: params[:impact_record][:impact_id], user_id: current_user.id)
           impact.save
       # note that I'm including the below line because impact_type wasn't being recorded.
       # remove the line if it breaks anything else.

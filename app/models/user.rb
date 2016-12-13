@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :publication
   belongs_to :position
+  has_many :impacts
   has_secure_password
 
   def reporter
