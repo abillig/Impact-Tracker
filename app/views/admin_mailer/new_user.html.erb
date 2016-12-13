@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hello there <%= @recipient.name %>,</p>
+    <p>A new user has been added to the Impact Tracker!</p>
+    <p>Name: <strong><%=@new_user.name%></strong></p>
+    <p>Title: <strong><%=@new_user.title%></strong></p>
+    <p>Publication: <strong><%=@new_user.publication.name%></strong></p>
+
+  </body>
+</html>

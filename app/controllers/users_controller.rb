@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    AdminMailer.new_user(User.where(name: "Avram Billig").first, @user).deliver
     session[:user_id] = @user.id
     redirect_to root_url
   end

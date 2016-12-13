@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Only an article's reporters can edit the article."
       redirect_to article_path(@article)
     end
-      @reporters = Reporter.all
+      @reporters = Reporter.reporters_from(current_user.publication)
       @projects = Project.all
   end
 

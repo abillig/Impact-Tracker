@@ -9,6 +9,62 @@ body {
   padding: 1%;
 }
 
+.label-checkbox{
+  // width: 50%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+
+input[type="checkbox"] + label{
+  width: 70px;
+ height: 70px;
+ margin: 5px; 
+ // padding: 0 5px 0 0;
+ // background: url(https://media4.giphy.com/media/mUaHVvdkeBoQg/200_s.gif);
+ display: block;
+ clear: left;
+ float: left;
+ cursor: pointer;
+
+}
+
+// input[type="checkbox"]:checked + .bop {
+//     background:url(http://vignette2.wikia.nocookie.net/clubpenguin/images/3/3e/Giant_Candy_Cane.PNG/revision/20141229152855);
+// }
+
+#plus_icon{
+  background-color: #317bbe;
+  color: white;
+  width: 1.5em;
+  height: 1.5em;
+  font-size: 2.5vw;
+  text-align: center;
+  border-radius: 5px;
+  float: right;
+}
+
+#impact_date_selector{
+  // width: 100%;
+  margin-left: 30%;
+  // margin-right: 25%;
+  // float: center;
+}
+
+#impact_date_selector input{
+  float: center;
+}
+
+#impact_search_results{
+  border-style: solid;
+  border-color: #bddfeb;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 2%;
+}
+
 #navbar_search{
   width:460px !important;
 }
@@ -56,7 +112,7 @@ color: gray;
 }
 
 .label-checkbox {
-  width: 40%;
+  // width: 40%;
   font: sans-serif;
 }
 

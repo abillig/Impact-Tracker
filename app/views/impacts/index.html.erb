@@ -1,20 +1,42 @@
-<h1>Search Impacts</h1>
+<a href="<%=impact_types_path%>"><div id="plus_icon"><span>+</span></div></a>
 
-<%= form_tag "/impact_search", method: "get" , remote: true, class: "navbar-form navbar-left"  do %>
-  <%= label_tag(:q, "Between") %>
-  <%= date_field(:impact, :start) %>
-  <strong>and</strong>
-  <%= date_field(:impact, :end) %>
+<%= form_tag "/impact_search", method: "get" , remote: true, class: "navbar-form"  do %>
+  <div id="impact_date_selector">
+    <%= date_field(:impact, :start) %>
+    <strong>-</strong>
+    <%= date_field(:impact, :end) %>
+  </div>
   <br><br>
-  <strong><h3>Select impact type(s)</h3></strong>
+  <strong><h4>Select impact type(s)</h4></strong>
   <br>
   <div id="impact_checkboxes">
   <%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
   <%= b.label class:"label-checkbox" do%>
-        <%=b.check_box + b.text%>
+        <%=b.check_box(class: "check_box", id: b.object.image)%>
+
+        <label class="bop" for="<%=b.object.image%>" id="<%=b.object.id%>b"></label>
+        <!-- <img class="icon" src="<%=b.object.image%>"></img> -->
+        <script>$('input[type="checkbox"] + label#<%=b.object.id%>b').css("background", "url(<%=b.object.image%>) no-repeat center").css("background-size", "cover");
+        $('input[type="checkbox"] + label').on("click", function(){
+        $(this).css("background", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2000px-Check_green_icon.svg.png) no-repeat center").css("background-size", "cover");
+
+      })
+      $('input[type="checkbox"] + label#<%=b.object.id%>b').hover(function(){
+      $('#descriptor').empty();
+      $('#descriptor').html("<p><%=b.object.name%></p>");
+      $('input[type="checkbox"] + label').css("opacity", "1.0");
+      $(this).css("opacity", ".8");
+
+    })
+        </script>
+
+
+
        <%end%>
+
 <%end%>
 </div>
+    <div id="descriptor"></div>
 <br>
   <%= submit_tag("Search") %>
 <% end %>

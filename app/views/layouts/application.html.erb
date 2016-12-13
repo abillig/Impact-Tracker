@@ -10,7 +10,9 @@
 
   <body>
     <div class="container">
+  <%if current_user%>
   <img id="pub_logo" src="http://www.gannett-cdn.com/sites/<%=current_user.publication.gannett_name%>/images/favicon.png"/>
+  <%end%>
   <h4 id="logo">Impact Tracker</h4>
     <nav class="navbar navbar-default">
     <div class="container-fluid">
