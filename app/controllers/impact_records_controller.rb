@@ -41,7 +41,8 @@ class ImpactRecordsController < ApplicationController
           impact_type = ImpactType.find_by(name: params[:impact_record][:impact_type])
           impact_record = ImpactRecord.create({article_id: article.id, impact_type_id: impact_type.id, impact_id: impact.id})
           impact_record.save
-          AdminMailer.new_impact(User.where(name: "Avram Billig").first, current_user, article, impact_record).deliver
+          #removing action mailer until it is fixed in development mode. 
+          # AdminMailer.new_impact(User.where(name: "Avram Billig").first, current_user, article, impact_record).deliver
           flash[:notice] = "Impact added!"
           redirect_to article_path(article)
       end

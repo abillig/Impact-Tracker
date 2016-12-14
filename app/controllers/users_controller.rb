@@ -13,11 +13,12 @@ class UsersController < ApplicationController
   def create
     # Reporter(id: integer, name: string, bio: string, created_at: datetime, updated_at: datetime, image: string, publication_id: integer)
     @user = User.create(user_params)
-    AdminMailer.new_user(User.where(name: "Avram Billig").first, @user).deliver_later
+    #removing mailer until it is fixed in development. 
+    # AdminMailer.new_user(User.where(name: "Avram Billig").first, @user).deliver_later
     session[:user_id] = @user.id
     @reporter = Reporter.create(name: params[:user][:name], bio: params[:user][:bio])
     @reporter.publication = @user.publication
-    @reporter.save 
+    @reporter.save
     redirect_to root_url
   end
 
