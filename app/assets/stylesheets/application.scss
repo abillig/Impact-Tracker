@@ -58,7 +58,7 @@ input[type="checkbox"] + label{
 //     background:url(http://vignette2.wikia.nocookie.net/clubpenguin/images/3/3e/Giant_Candy_Cane.PNG/revision/20141229152855);
 // }
 
-#plus_icon{
+.plus_icon{
   background-color: #317bbe;
   color: white;
   width: 1.5em;
@@ -67,6 +67,11 @@ input[type="checkbox"] + label{
   text-align: center;
   border-radius: 5px;
   float: right;
+}
+
+.plus_icon.small{
+  margin-left: 2%;
+  // background-color: #8ec0d2;
 }
 
 #impact_date_selector{
