@@ -36,7 +36,7 @@
 
 
 <div id="article_search_results">
-  <%@articles.each do |article|%>
+  <%@articles[0..20].each do |article|%>
   <a href=<%=article_path(article.id)%>>
   <div class="col-sm-4">
     <div id="article_display_container">

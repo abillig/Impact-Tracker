@@ -9,8 +9,28 @@ class ImpactsController < ApplicationController
     @articles = Article.all
   end
 
+
   def selector
 
+  end
+
+  def download
+    impacts = ""
+
+    impacts << "Impacts: \n\n"
+
+    params[:impacts].each do |impact_id|
+      impact = Impact.find(impact_id)
+      impacts << "Article: " + impact.impact_records.first.article.headline + "\n"
+      impacts << "By: " + impact.impact_records.first.article.reporter_name + "\n"
+      impacts << "Impact type: " + impact.impact_types.first.name + "\n"
+      impacts << "Impact description: " + impact.description + "\n"
+      impacts << "Impact date: " + impact.impact_date.to_s + "\n\n"
+    end
+
+    send_data impacts,
+      :type => 'text',
+      :disposition => "attachment; filename=" + "Impact_search_" + Time.now.to_s
   end
 
   def article_selector

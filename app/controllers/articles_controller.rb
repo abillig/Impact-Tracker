@@ -11,6 +11,21 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def articles_download
+    impacts = ""
+    @article = Article.find(params[:id])
+    impacts << @article.headline + "\n"
+    impacts << "By " + @article.reporter_name + "\n\n"
+    impacts << "Impacts: \n"
+    Article.find(params[:id]).impacts.each do |impact|
+      impacts << impact.impact_types.first.name + ": " + impact.description + "\n\n"
+    end
+
+    send_data impacts,
+      :type => 'text',
+      :disposition => "attachment; filename=" + @article.headline
+  end
+
   def new
     @article = Article.new
     @reporters = Reporter.reporters_from(current_user.publication)
@@ -42,11 +57,20 @@ class ArticlesController < ApplicationController
       @projects = Project.all
   end
 
+  def update
+    @article = Article.find(params[:id])
+    @article.headline = params[:article][:headline]
+    @article.url = params[:article][:url]
+    @article.info = params[:article][:info]
+    @article.project = Project.find(params[:article][:project_id])
+    @article.save
+  end
+
 
 end
 
 private
 
 def article_params
-    params.require(:article).permit(:headline, :url, :info, :date, :reporters)
+    params.require(:article).permit(:headline, :url, :info, :date, :reporters, :project_id)
 end

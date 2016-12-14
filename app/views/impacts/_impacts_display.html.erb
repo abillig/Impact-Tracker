@@ -1,7 +1,6 @@
 <%impacts.each do |impact|%>
 <div class="impact_bubbles">
 <div class="impact_package large">
-<!-- <img class="icon" src=<%=impact.impact_types.first.image%>></img> -->
 
 <div class="impact_bubble article">
 <img class="icon" src=<%=impact.impact_types.first.image%>></img>
@@ -18,3 +17,5 @@
 </div>
 </div>
 <%end%>
+ <div class = "edit_button"><%=link_to "Download txt", download_impacts_path(:impacts => impacts)%></div>
+<!-- <a class = "edit_button" href=<%=download_impacts_path(impacts)%>>Download <br>search results</a> -->

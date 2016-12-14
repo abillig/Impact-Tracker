@@ -9,6 +9,19 @@ class ImpactRecordsController < ApplicationController
     end
   end
 
+  def edit
+    @impact_record = ImpactRecord.find(params[:id])
+    @impact_types = ImpactType.all.uniq
+    @article=@impact_record.article
+    @description = @impact_record.impact.description
+    @impact_date = @impact_record.impact.impact_date
+    if current_user.is_reporter && @article.reporter_names.include?(current_user.name) == false
+      flash[:notice] = "You can only add impacts to articles you have authored. Please contact the article's reporter to add an impact."
+      redirect_to article_path(@article)
+    end
+
+  end
+
   def create
     article = Article.find_by(headline: params[:impact_record][:article])
 #prevent creation of impact if reporter didn't write article or isn't editor
@@ -39,5 +52,16 @@ class ImpactRecordsController < ApplicationController
     @impact_type = ImpactType.find(params[:impact_id])
     @article=Article.find(params[:article])
   end
+
+  def update
+    @impact_record = ImpactRecord.find(params[:id])
+    @impact_record.impact_type = ImpactType.find_by(name: params[:impact_record][:impact_type])
+    @impact = @impact_record.impact
+    @impact.impact_date = params[:impact_record][:impact_id]
+    @impact.description = params[:impact_record][:impact]
+    @impact_record.save
+    @impact.save
+  end
+
 
 end

@@ -7,7 +7,7 @@
 <% end %>
 
 <%if @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
-<div id="edit_button"><a href="<%=edit_article_path%>">Edit this article</a></div>
+<div class="edit_button"><a href="<%=edit_article_path%>">Edit this article</a></div>
 <br>
 <%end%>
 
@@ -50,6 +50,7 @@
   <%end%> -->
 
   <%end%>
+  <a class = "edit_button" href=<%=download_path(@article.id)%>>Download <br>(txt file)</a>
   <%if current_user.title != "Reporter" || @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
     <h5 class="subhead"><strong><a href=<%=new_impact_record_path(@article.id)%>><em>Add Impact</em></a></strong></h5>
   <%end%>

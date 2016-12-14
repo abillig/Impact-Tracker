@@ -4,9 +4,48 @@
 		<div class="media-body">
 			<dl class="dl-horizontal"> -->
 				<h2>Welcome, <%=@user.name%></h2>
-				<%if current_user.title == "Article"%>
+				<%if current_user.title == "Reporter" && current_user.reporter.first.articles.length > 0 %>
 				  <h4>Your Articles: </h4>
 					<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
+				<%end%>
+				<br><br><br><br><br><br><br>
+				<h4>Your Impacts: </h4>
+
+				<%@user.impacts.each do |impact|%>
+
+
+				<div class="impact_bubbles left">
+				<div class="impact_package large">
+
+				<div class="impact_bubble article">
+
+					<!-- adding this contitional because it appears that impact duplicates are being made, one without
+				db connections, so without has_manys. will investigate.  -->
+
+					<%if impact.impact_types.length > 0%>
+							<img class="icon" src=<%=impact.impact_types.first.image%>></img>
+						<%end%>
+				<%if impact.impact_date%>
+				<em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
+				<%end%><!-- <br> -->
+
+				<div class="impact_bubble_text">
+					<!-- adding this contitional because it appears that impact duplicates are being made, one without
+				db connections, so without has_manys. will investigate.  -->
+					<%if impact.impact_records.length > 0%>
+					<h4><%=impact.impact_records.first.article.headline%></h4>
+					<%end%>
+
+				<h5><%=impact.description%></h5>
+
+				<%if impact.user && impact.impact_records.length > 0 && current_user == impact.user%>
+				<div class="edit_button small"><a href="<%=edit_impact_record_path(impact.impact_records.first.id)%>">Edit this impact</a></div>
+				<%end%>
+
+				</div>
+				</div>
+				</div>
+				</div>
 				<%end%>
 			<!-- </dl>
 		</div>

@@ -22,5 +22,9 @@ Rails.application.routes.draw do
   get "impact_selector" => "impacts#selector", as: 'impact_selector'
   get "impact_selector/:id" => "impacts#selector", as: 'impact_selector_id'
   get '/add_from_home/:article/:impact_id' => "impact_records#add_from_home", as: 'add_from_home'
+  get '/download/:id' => 'articles#articles_download', as: 'download'
+  get '/download_impacts' => 'impacts#download', as: 'download_impacts'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
