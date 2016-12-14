@@ -8,7 +8,7 @@
             <%= f.password_field :password, required: true %>
             <%= f.select :publication_id, options_for_select(@publications.map{|publication|[publication.name, publication.id]})%>
             <%= f.select :position_id, options_for_select(@positions.map{|position|[position.name, position.id]}), :required => true%>
-            <%= f.submit class: "btn btn-primary pull-right" %>
+            <%= f.submit 'Sign Up', class: "btn btn-primary pull-right" %>
           <% end %>
         </div>
     </div>

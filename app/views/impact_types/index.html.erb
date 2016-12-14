@@ -1,3 +1,4 @@
+<% if current_user%>
 <h1 class="headline_view">Add an Impact</h1>
 
 
@@ -21,3 +22,7 @@
 </a>
     <%end%>
 </div>
+<%else%>
+<div class="welcome">Welcome to the Impact Tracker</div>
+<div class="welcome">Please sign in or sign up</div>
+<%end%>

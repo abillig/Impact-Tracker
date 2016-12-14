@@ -3,13 +3,13 @@
   		<a class="media-left" href="#"></a>
 		<div class="media-body">
 			<dl class="dl-horizontal"> -->
-				<h2>Welcome, <%=@user.name%></h2>
+				<div class="centered_header"><%=@user.name%></div>
 				<%if current_user.title == "Reporter" && current_user.reporter.first.articles.length > 0 %>
-				  <h4>Your Articles: </h4>
+				  <div class="centered_header small">Your Articles: </div>
 					<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
 				<%end%>
 				<br><br><br><br><br><br><br>
-				<h4>Your Impacts: </h4>
+				<div class="centered_header small">Your Impacts: </div>
 
 				<%@user.impacts.each do |impact|%>
 

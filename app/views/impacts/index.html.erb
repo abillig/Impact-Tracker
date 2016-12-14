@@ -7,8 +7,7 @@
     <%= date_field(:impact, :end) %>
   </div>
   <br><br>
-  <strong><h4>Select impact type(s)</h4></strong>
-  <br>
+ <div class="centered_header small">Select impact type(s)</div>
   <div id="impact_checkboxes">
   <%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
   <%= b.label class:"label-checkbox" do%>
@@ -36,9 +35,10 @@
 
 <%end%>
 </div>
-    <div id="descriptor"></div>
-<br>
-  <%= submit_tag("Search") %>
+  <div class="centered_header small center" id="descriptor"></div>
+
+  <%= submit_tag("Search", class: "btn btn-success") %>
 <% end %>
+<br><br>
 
 <div id="impact_search_results"></div>

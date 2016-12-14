@@ -1,6 +1,29 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.welcome{
+    color: #317bbe;
+    text-align: center;
+    font-size: 6.0vh;
+    margin-top: 5%;
+}
+
+.centered_header{
+  text-align: left;
+  font-size: 6.0vh;
+  margin: 1%;
+}
+
+.centered_header.small{
+  font-size: 3.5vh;
+}
+
+.centered_header.small.center{
+  text-align: center;
+}
+
+
 #sub_head {
   display: block;
   margin-bottom: 3%;
@@ -214,7 +237,7 @@ text-align: center;
 
 .icon.small{
   width: 4%;
-  float: right;  
+  float: right;
 }
 
 .impact_bubbles{
