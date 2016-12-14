@@ -33,10 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create({headline: params[:article][:headline],
-      url: params[:article][:url],
-      info: params[:article][:info],
-      date: params[:article][:date]})
+    article = Article.create({headline: params[:article][:headline],url: params[:article][:url],info: params[:article][:info],date: params[:article][:date], project_id: params[:article][:project_id]})
     article.reporters << Reporter.find_by(name: params[:article][:reporters])
     redirect_to article_path(article.id)
   end
