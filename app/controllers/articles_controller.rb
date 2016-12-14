@@ -62,8 +62,10 @@ class ArticlesController < ApplicationController
     @article.headline = params[:article][:headline]
     @article.url = params[:article][:url]
     @article.info = params[:article][:info]
+    @article.date = params[:article][:date]
     @article.project = Project.find(params[:article][:project_id])
     @article.save
+    redirect_to article_path(@article)
   end
 
 

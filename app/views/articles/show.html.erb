@@ -15,7 +15,7 @@
 <h1 id="article_headline_view"><a href=<%=@article.url%>><%=@article.headline%></a></h1>
   <div id="sub_head">
   <em>By <a href=<%=reporter_path(@article.reporter_id)%>><%=@article.reporter_name%></a>
-    | <%=@article.date%></em>
+    | <%=@article.date.strftime("%B %d, %Y")%></em>
   </div>
 </div>
 
