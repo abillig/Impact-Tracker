@@ -14,8 +14,12 @@ class Impact < ApplicationRecord
     self.user.publication
   end
 
+  def self.impacts_from(publication)
+    self.all.select{|impact|impact.user.publication==publication}
+  end
+
   def self.current_publication
-    #this method may fail because I created the publication method. 
+    #this method may fail because I created the publication method.
     Impact.all.where(publication: current_user.publication)
   end
 
