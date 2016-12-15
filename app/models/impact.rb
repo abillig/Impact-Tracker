@@ -14,6 +14,10 @@ class Impact < ApplicationRecord
     self.user.publication
   end
 
+  def impact_type
+    self.impact_records.first.impact_type
+  end
+
   def self.impacts_from(publication)
     self.all.select{|impact|impact.user.publication==publication}
   end

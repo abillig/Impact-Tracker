@@ -21,7 +21,7 @@
 </div>
 
 <div id="impacts_container">
-  <%=render(:partial => './impacts/impacts_display_impact_focused', :locals => { impacts: @impact_type.impacts_from(current_user.publication) })%>
+  <%=render(:partial => './impacts/impacts_display_impact_focused', :locals => { impacts: @impacts })%>
   <!-- <%ImpactType.find(params[:id]).impacts.each do |impact|%>
   <%=impact.description%>
   <%end%> -->
