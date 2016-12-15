@@ -205,19 +205,31 @@ color: gray;
 #impact_sidebar{
   width: 30%;
   display: inline-block;
+  margin-top: 10%;
 }
 
 #impact_show_icon{
   width: 60%;
   margin-left: 20%;
-  margin-top: 2%; 
+  margin-top: 2%;
 }
 
 #impacts_container{
   position: absolute;
   width: 70%;
   display: inline-block;
-  margin-top: 5%;
+  margin-top: 12%;
+}
+
+.impact_checkboxes{
+  position: absolute;
+  margin-bottom: 5%;
+  margin-left: 14%;
+}
+.impact_checkboxes img{
+  margin-left: 2%;
+  width: 4%;
+  opacity: .5;
 }
 // body{
 //   font-family: sans-serif;

@@ -1,9 +1,17 @@
 
+<div class="impact_checkboxes">
+<%@impact_types.each do |impact_type|%>
+  <a href="<%=impact_type_path(impact_type.id)%>">
+    <img class="icon" id="<%=impact_type.name%>" src="<%=impact_type.image%>">
+  </a>
+<%end%>
+</div>
+
 
 <div id="impact_sidebar">
   <strong><div class="centered_header center"><%=@impact_type.name%></div></strong>
 
-<img id="impact_show_icon" src="<%=ImpactType.find(params[:id]).image%>">
+<img id="impact_show_icon" src="<%=@impact_type.image%>">
   <!-- <div class="centered_header small italics"><%=@impact_type.description%></div> -->
   <br><br>
 <div class="centered_header center"><strong><%=@num_impacts%></strong> Impacts</div>
@@ -18,3 +26,7 @@
   <%=impact.description%>
   <%end%> -->
 </div>
+
+<script>
+document.getElementById("<%=@impact_type.name%>").style.opacity = 1.0;
+</script>
