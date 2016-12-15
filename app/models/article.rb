@@ -7,6 +7,9 @@ class Article < ApplicationRecord
   has_many :impacts, through: :impact_records
   belongs_to :project
 
+  def reporter
+    self.reporters.first
+  end
 
   def reporter_name
     self.reporters.map{|reporter| reporter.name}.first
@@ -24,8 +27,12 @@ class Article < ApplicationRecord
     self.reporters.first.publication
   end
 
-  def reporter_names 
+  def reporter_names
     self.reporters.map{|reporter| reporter.name}
+  end
+
+  def self.articles_from(publication)
+    self.all.select{|article|article.reporter.publication==publication}
   end
 
 end

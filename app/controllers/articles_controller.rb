@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # before_action :search, only: [:index, :create, :update]
 
   def index
-    @articles = Article.all
+    @articles = Article.articles_from(current_user.publication)
     # limit reporters for dropdown to those of relevant publication
     @reporters = Reporter.reporters_from(current_user.publication)
   end
