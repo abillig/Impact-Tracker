@@ -1,12 +1,19 @@
 
+
 <div id="impact_sidebar">
+  <strong><div class="centered_header center"><%=@impact_type.name%></div></strong>
+
 <img id="impact_show_icon" src="<%=ImpactType.find(params[:id]).image%>">
+  <!-- <div class="centered_header small italics"><%=@impact_type.description%></div> -->
+  <br><br>
+<div class="centered_header center"><strong><%=@num_impacts%></strong> Impacts</div>
+
 <br>
-<%=ImpactType.find(params[:id]).name%>
+
 </div>
 
 <div id="impacts_container">
-  <%=render(:partial => './impacts/impacts_display', :locals => { impacts: ImpactType.find(params[:id]).impacts })%>
+  <%=render(:partial => './impacts/impacts_display_impact_focused', :locals => { impacts: @impact_type.impacts })%>
   <!-- <%ImpactType.find(params[:id]).impacts.each do |impact|%>
   <%=impact.description%>
   <%end%> -->

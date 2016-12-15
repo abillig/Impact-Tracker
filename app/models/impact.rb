@@ -10,5 +10,14 @@ class Impact < ApplicationRecord
     Impact.where("name like ?", "%#{term}%")
   end
 
+  def publication
+    self.user.publication
+  end
+
+  def self.current_publication
+    #this method may fail because I created the publication method. 
+    Impact.all.where(publication: current_user.publication)
+  end
+
 
 end

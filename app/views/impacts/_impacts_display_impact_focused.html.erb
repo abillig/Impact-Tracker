@@ -1,0 +1,22 @@
+<%impacts.each do |impact|%>
+<div class="impact_bubbles">
+<div class="impact_package large fill">
+
+<div class="impact_bubble article">
+<img class="icon" src=<%=impact.impact_types.first.image%>></img>
+<!-- <%=impact.impact_types.first.name%> -->
+<%if impact.impact_date%>
+<em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
+<%end%><!-- <br> -->
+
+<div class="impact_bubble_text left_padded">
+<h4><%=impact.description%></h4>
+<h5 style="font-style:italic">
+  <a href="<%=article_path(impact.impact_records.first.article)%>"><%=impact.impact_records.first.article.headline%></a>
+</h5>
+</div>
+</div>
+</div>
+</div>
+<%end%>
+<!-- <a class = "edit_button" href=<%=download_impacts_path(impacts)%>>Download <br>search results</a> -->

@@ -5,6 +5,9 @@ class ImpactTypesController < ApplicationController
   end
 
   def show
+    @impact_type = ImpactType.find(params[:id])
+    @num_impacts = @impact_type.impacts.length
+    
 
   end
 

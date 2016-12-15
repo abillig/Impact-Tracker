@@ -15,12 +15,31 @@
   margin: 1%;
 }
 
+.centered_header.center{
+  text-align: center;
+}
+
 .centered_header.small{
   font-size: 3.5vh;
 }
 
+.centered_header.italics{
+  font-size: 2.5vh;
+  font-style: italic;
+}
+
+.centered_header.medium{
+  font-size: 4.5vh;
+}
+
 .centered_header.small.center{
   text-align: center;
+}
+
+.centered_header.tops{
+  margin-bottom: 3%;
+  margin-left: 6%;
+  width: 30%;
 }
 
 
@@ -179,19 +198,26 @@ color: gray;
   color: white;
 }
 
-#impact_show_icon{
-  width: 80%;
+#impact_type_header{
+  width: 100%;
 }
 
 #impact_sidebar{
-  width: 25%;
+  width: 30%;
   display: inline-block;
+}
+
+#impact_show_icon{
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 2%; 
 }
 
 #impacts_container{
   position: absolute;
   width: 70%;
   display: inline-block;
+  margin-top: 5%;
 }
 // body{
 //   font-family: sans-serif;
@@ -317,6 +343,10 @@ text-align: center;
   padding-right: 10%;
 }
 
+.impact_bubble_text.left_padded{
+  padding-left: 12%;
+}
+
 
 .impact_package{
   vertical-align: middle;
@@ -329,6 +359,10 @@ text-align: center;
 
 .impact_package.large{
   width: 100%;
+}
+
+.impact_package.large.fill{
+  margin-left: 0%;
 }
 
 #article_choices{
