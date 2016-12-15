@@ -4,7 +4,7 @@
 
 <div class="impact_bubbles small cover_page">
 
-    <%@impact_types.reverse.each do |impact_type|%>
+    <%@impact_types.sort.each do |impact_type|%>
 
 <a href=<%=impact_selector_id_path(impact_type.id)%>>
         <div class="impact_package">
