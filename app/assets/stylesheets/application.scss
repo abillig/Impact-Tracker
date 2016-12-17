@@ -24,6 +24,20 @@
   font-size: 3.5vh;
 }
 
+.centered_header.small.space{
+  margin-top: 20%;
+}
+
+
+.list_container{
+  width: 100%;
+  position: relative;
+}
+
+.list_container.absolute{
+  position: absolute;
+}
+
 .centered_header.italics{
   font-size: 2.5vh;
   font-style: italic;
@@ -50,6 +64,7 @@
 }
 body {
   padding: 1%;
+  font-family: helvetica;
 }
 
 .label-checkbox{
@@ -130,7 +145,7 @@ input[type="checkbox"] + label{
 
 #impact_count{
   float: right;
-font-size: 1.7vh;
+font-size: 1.9vh;
 color: gray;
 }
 
@@ -223,30 +238,59 @@ color: gray;
   margin-top: 9%;
 }
 
-#impact_search_button{
-  background-color: #317bbe;
-  color: white;
-  width: 4.5em;
-  // height: 1.5em;
-  border-radius: 5px;
-  float: right;
+#impact_search_button {
+      float: right;
+    background-color: #317bbe; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 12px 0px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 82%;
+    width: 8%;
 }
 
-#impact_search_button p {
-  margin: 20%;
-  margin-right: 10%;
-  font-size: 1.0em;
-  // text-align: center;
+#impact_search_button:hover{
+  background-color: #73878e;
 }
+
+
+#impact_search_button a{
+  text-decoration: none;
+  color: white;
+  font-size: 3.0vh;
+}
+
+// #impact_search_button{
+//   background-color: #317bbe;
+//   color: white;
+//   width: 5%;
+//   height: 5%;
+//   border-radius: 5px;
+//   float: right;
+//   text-decoration: none;
+// }
+//
+// #impact_search_button a {
+//   text-decoration: none;
+//   color: white;
+//   font-size: 3.0vh;
+//   // text-align: center;
+// }
 
 .impact_checkboxes{
   position: absolute;
   margin-bottom: 2%;
   margin-left: 14%;
+  // margin-right: 5%;
+  width: 60%;
 }
 .impact_checkboxes img{
   margin-left: 2%;
-  width: 4%;
+  width: 6%;
   opacity: .5;
 }
 // body{
