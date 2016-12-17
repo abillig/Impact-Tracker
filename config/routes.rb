@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :impacts
   resources :users
+  resources :projects
   resources :impact_records
   get '/search' => 'articles#search'
   get '/impact_search' => 'impacts#search'

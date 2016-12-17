@@ -1,10 +1,10 @@
-<a href="<%=new_article_path%>"><div class="plus_icon small"><span>+</span></div></a>
+<!-- <a href="<%=new_article_path%>"><div class="plus_icon small"><span>+</span></div></a> -->
 <div class="dropdown_and_search">
 <div class="col-sm-1">
   <div class="btn-group" id="reporter_dropdown">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
       <ul class="dropdown-menu scrollable-menu" role="menu">
-        <%@reporters.each do |reporter|%>
+        <%@reporters.shuffle.each do |reporter|%>
         <li><a href=<%=reporter_search_path(reporter.id)%> data-remote="true"><%=reporter.name%></a></li>
         <%end%>
 
@@ -37,7 +37,7 @@
 
 
 <div id="article_search_results">
-  <%@articles[0..20].each do |article|%>
+  <%@articles.shuffle[0..20].each do |article|%>
   <a href=<%=article_path(article.id)%>>
   <div class="col-sm-4">
     <div id="article_display_container">
