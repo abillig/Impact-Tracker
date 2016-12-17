@@ -32,8 +32,7 @@
     <% if current_user %>
     <li><%= link_to 'Articles', articles_path%></li>
     <li><%= link_to 'Impacts', impact_type_path((1..ImpactType.all.length).to_a.sample)%></li>
-    <li><%= link_to 'Impact Search', impacts_path%></li>
-
+    
        </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
