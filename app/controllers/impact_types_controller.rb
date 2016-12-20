@@ -8,7 +8,7 @@ class ImpactTypesController < ApplicationController
     @impact_type = ImpactType.find(params[:id])
     @impact_types = ImpactType.all
     #for development
-     #@impacts = Impact.all[1..10]
+    #  @impacts = Impact.all[1..10]
     #for production
      @impacts = Impact.impacts_from(current_user.publication).select{|impact|impact.impact_type == @impact_type}
     @num_impacts = @impacts.length
