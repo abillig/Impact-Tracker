@@ -1,6 +1,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "stats.scss";
 
 .welcome{
     color: #317bbe;
@@ -517,7 +518,7 @@ text-align: center;
 }
 
 .impact_checkboxes{
-  position: relative; 
+  position: relative;
 }
 
 .impact_checkboxes img{

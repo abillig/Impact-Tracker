@@ -66,5 +66,29 @@ class ImpactRecordsController < ApplicationController
     @impact.save
   end
 
+  def stats
+    @last_month_impacts = ImpactRecord.all.select{|record|record.impact.impact_date > Time.now - 31 * 24 * 60 * 60}
+    @types_hash = extract_types(@last_month_impacts)
+  end
+
+  def extract_types(collection)
+    result = {}
+    collection.each do |impact_record|
+      result[impact_record.impact_type.name] ||= 0
+      result[impact_record.impact_type.name] +=1
+  end
+  result
+  end
+
+  def stats_select
+    impact_records_of_selected_type = ImpactRecord.where(impact_type_id: ImpactType.where(name: params[:type]).first.id)
+    @of_type_during_date = impact_date_select(impact_records_of_selected_type, 30)
+  end
+
+  def impact_date_select(collection, days)
+    collection.select{|record|record.impact.impact_date > Time.now - days * 24 * 60 * 60}.map{|record|record.impact}
+  end
+
+
 
 end

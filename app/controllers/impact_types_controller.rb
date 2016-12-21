@@ -10,7 +10,7 @@ class ImpactTypesController < ApplicationController
     #for development
     #  @impacts = Impact.all[1..10]
     #for production
-     @impacts = Impact.impacts_from(current_user.publication).select{|impact|impact.impact_type == @impact_type}
+    @impacts = Impact.impacts_from(current_user.publication).select{|impact|impact.impact_type == @impact_type}
     @num_impacts = @impacts.length
 
   end

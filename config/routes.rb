@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/impact_search' => 'impacts#search'
   root "impact_types#index"
 
+#should remove this duplicate 
   get '/impact_search' => 'impacts#article_selector'
 
   get '/impact_add_search' => 'impacts#impact_add_search', as: 'impact_add_search'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   get '/add_from_home/:article/:impact_id' => "impact_records#add_from_home", as: 'add_from_home'
   get '/download/:id' => 'articles#articles_download', as: 'download'
   get '/download_impacts' => 'impacts#download', as: 'download_impacts'
+  get '/stats' => 'impact_records#stats'
+  get '/stats_select/:type' => 'impact_records#stats_select', as: 'stats_select'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
