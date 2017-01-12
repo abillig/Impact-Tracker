@@ -1,0 +1,85 @@
+
+<% if flash[:notice] %>
+  <% if flash[:notice] == "Impact added!"%>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+  <%else%>
+    <div class="alert alert-warning"><%= flash[:notice] %></div>
+    <%end%>
+<% end %>
+
+<div id="article_header">
+<h1 id="article_headline_view"><%=@project.description%></h1>
+  <div id="sub_head">
+</div>
+
+<%if @project.articles.length > 0%>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+        <%=render(:partial => './articles/article_display', :locals => { article: @project.articles[0] })%>
+    </div>
+    <%if @project.articles.length > 1 %>
+      <%@project.articles[1..@project.articles.length].each do |article|%>
+        <div class="item">
+          <%=render(:partial => './articles/article_display', :locals => { article: article })%>
+        </div>
+
+      <%end%>
+    <%end%>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+<%end%>
+
+<br><br>
+
+
+  <%@project.impacts.distinct.each do |impact|%>
+  <div class="impact_bubbles">
+<div class="impact_package large">
+  <!-- <img class="icon" src=<%=impact.impact_types.first.image%>></img> -->
+
+<div class="impact_bubble article">
+  <a href="<%=impact_type_path(impact.impact_type.id)%>">
+    <img class="icon" src=<%=impact.impact_types.first.image%>></img>
+  </a>
+  <!-- <%=impact.impact_types.first.name%> -->
+  <%if impact.impact_date%>
+<em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
+<%end%>
+
+<!-- <br> -->
+
+<div class="impact_bubble_text">
+  <h4><%=impact.description%></h4>
+</div>
+</div>
+</div>
+</div>
+  <!-- <strong>Impacts: </strong>
+  <%impact.impact_types.each_with_index do |impact_type, i|%>
+    <%if i+1==impact.impact_types.length%>
+      <strong><%="#{impact_type.name}"%></strong>
+    <%else%>
+      <strong><%="#{impact_type.name}, "%></strong>
+    <%end%>
+  <%end%> -->
+
+  <%end%>

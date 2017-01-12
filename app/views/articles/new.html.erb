@@ -6,7 +6,7 @@
   <%= f.text_field :headline, required: true %>
   <%= f.text_field :url, required: true %>
   <%= f.text_field :info %>
-  <%= f.date_field :date, required: true %>
+  <%= f.date_field :date, required: true, label: 'Online publication date' %>
   <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}), required: true %>
   <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}) %>
   <%= f.submit %>

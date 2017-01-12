@@ -23,7 +23,11 @@ class ImpactRecordsController < ApplicationController
   end
 
   def create
-    article = Article.find_by(headline: params[:impact_record][:article])
+    if params[:impact_record][:article]
+      article = Article.find_by(headline: params[:impact_record][:article])
+    elsif params[:impact_record][:project]
+      project = Project.find_by(description: params[:impact_record][:project])
+    end
 #prevent creation of impact if reporter didn't write article or isn't editor
       if current_user.is_reporter && article.reporter_names.include?(current_user.name) == false
         flash[:notice] = "You can only add impacts to articles you have authored. Please contact the article's reporter to add an impact."
@@ -39,14 +43,22 @@ class ImpactRecordsController < ApplicationController
       # note that I'm including the below line because impact_type wasn't being recorded.
       # remove the line if it breaks anything else.
           impact_type = ImpactType.find_by(name: params[:impact_record][:impact_type])
-          impact_record = ImpactRecord.create({article_id: article.id, impact_type_id: impact_type.id, impact_id: impact.id})
+          if params[:impact_record][:article]
+            impact_record = ImpactRecord.create({article_id: article.id, impact_type_id: impact_type.id, impact_id: impact.id})
+          elsif params[:impact_record][:project]
+            impact_record = ImpactRecord.create({project_id: project.id, impact_type_id: impact_type.id, impact_id: impact.id})
+          end
           impact_record.save
           #removing action mailer until it is fixed in development mode.
           # AdminMailer.new_impact(User.where(name: "Avram Billig").first, current_user, article, impact_record).deliver
           # AdminMailer.new_impact(User.where(name: "Anjanette Delgado").first, current_user, article, impact_record).deliver
           # AdminMailer.new_impact(User.where(name: "Frank Scandale").first, current_user, article, impact_record).deliver
           flash[:notice] = "Impact added!"
-          redirect_to article_path(article)
+          if params[:impact_record][:article]
+            redirect_to article_path(article)
+          elsif params[:impact_record][:project]
+            redirect_to project_path(project)
+          end
       end
   end
 
@@ -55,6 +67,12 @@ class ImpactRecordsController < ApplicationController
     @impact_type = ImpactType.find(params[:impact_id])
     @article=Article.find(params[:article])
   end
+
+    def add_from_home_project
+      @impact_record = ImpactRecord.new
+      @impact_type = ImpactType.find(params[:impact_id])
+      @project=Project.find(params[:project])
+    end
 
   def update
     @impact_record = ImpactRecord.find(params[:id])

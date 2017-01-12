@@ -6,4 +6,9 @@ class Reporter < ApplicationRecord
   def self.reporters_from(publication)
     self.all.select{|reporter|reporter.publication == publication}
   end
+
+  def self.search(term)
+    where('LOWER(name) LIKE :name', name: "%#{term.downcase}%")
+  end
+
 end

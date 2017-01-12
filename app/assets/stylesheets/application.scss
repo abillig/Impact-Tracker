@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "stats.scss";
+// ??
+@import "jquery-ui/datepicker";
 
 .welcome{
     color: #317bbe;
@@ -446,6 +448,11 @@ text-align: center;
 
 #navbar_mobile{
   display: none;
+}
+
+.panel-body.project{
+  background: #297ab7;
+  color: white; 
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {

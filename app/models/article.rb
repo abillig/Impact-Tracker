@@ -20,7 +20,9 @@ class Article < ApplicationRecord
   end
 
   def self.search(term)
-    Article.where("headline like ?", "%#{term}%")
+    article_results = Article.where("headline like ?", "%#{term}%")
+    project_results = Project.where("description like ?", "%#{term}%")
+    article_results + project_results
   end
 
   def publication

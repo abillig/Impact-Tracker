@@ -19,7 +19,7 @@
 
 					<div class="impact_bubble article">
 
-						<!-- adding this contitional because it appears that impact duplicates are being made, one without
+						<!-- adding this conditional because it appears that impact duplicates are being made, one without
 					db connections, so without has_manys. will investigate.  -->
 
 						<%if impact.impact_types.length > 0%>
@@ -30,7 +30,7 @@
 					<%end%><!-- <br> -->
 
 					<div class="impact_bubble_text">
-						<!-- adding this contitional because it appears that impact duplicates are being made, one without
+						<!-- adding this conditional because it appears that impact duplicates are being made, one without
 					db connections, so without has_manys. will investigate.  -->
 						<%if impact.impact_records.length > 0%>
 						<h4><%=impact.impact_records.first.article.headline%></h4>

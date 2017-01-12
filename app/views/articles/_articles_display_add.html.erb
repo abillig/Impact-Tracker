@@ -1,15 +1,33 @@
-<%articles.each do |article|%>
-<%if article.reporters.map{|reporter|reporter.name}.include?(current_user.name) || current_user.title != "Reporter"%>
-<div class="col-sm-4">
-  <div id="article_display_container">
-    <%imp_id = params[:impact_id]%>
-    <a href="<%=add_from_home_path(article.id, imp_id)%>">
-      <div class="panel panel-default">
-          <div class="panel-body"><h4><%=article.headline%></h4>
-          <h5><%=article.reporters.pluck('name').uniq.first%></h5></div>
-        </div>
+<%articles.each do |article_or_project|%>
+  <%if article_or_project.class == Article%>
+    <%if article_or_project.reporters.map{|reporter|reporter.name}.include?(current_user.name) || current_user.title != "Reporter"%>
+    <div class="col-sm-4">
+      <div id="article_display_container">
+        <%imp_id = params[:impact_id]%>
+        <a href="<%=add_from_home_path(article_or_project.id, imp_id)%>">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <h4><%=article_or_project.headline%></h4>
+                <h5><%=article_or_project.reporters.pluck('name').uniq.first%></h5>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
-  <%end%>
+      <%end%>
+    <%elsif article_or_project.class == Project%>
+    <div class="col-sm-4">
+      <div id="article_display_container">
+        <%imp_id = params[:impact_id]%>
+        <a href="<%=add_from_home_project_path(article_or_project.id, imp_id)%>">
+          <div class="panel panel-default">
+              <div class="panel-body project">
+                <h4><%=article_or_project.description%></h4>
+                <h5> project</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <%end%>
 <%end%>
