@@ -452,7 +452,11 @@ text-align: center;
 
 .panel-body.project{
   background: #297ab7;
-  color: white; 
+  color: white;
+}
+
+#toggle_impact, #toggle_article{
+  width: 50%;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {

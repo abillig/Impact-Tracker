@@ -1,3 +1,12 @@
+<div class="btn-group" role="group" style="width: 100%; margin-bottom: 3%;">
+  <!-- <div class="col-sm-12"> -->
+    <button type="button" class="btn btn-default" id="toggle_article">
+      <%= link_to 'Stories', articles_path%>
+    </button>
+    <button type="button" class="btn btn-default" id="toggle_impact"  style="background-color: #d3d3d3;">Impacts</button>
+  <!-- </div> -->
+</div>
+
 <div id="impact_search_button"><a href="<%=impacts_path%>"><p>Search</p></a></div>
 <div class="impact_checkboxes">
 <%@impact_types.each do |impact_type|%>

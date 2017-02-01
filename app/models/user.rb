@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :position
   has_many :impacts
   has_secure_password
+   validates :password, confirmation: true
 
   def reporter
     Reporter.where(name: self.name)

@@ -1,13 +1,16 @@
+<% if flash[:notice]%>
+  <div class="alert alert-warning"><%= flash[:notice] %></div>
+<%end%>
 <div class="panel-body">
-    <div class="col-sm-5">
+    <div class="col-sm-8">
         <div class="container-fluid">
           <%= bootstrap_form_for(@user) do |f| %>
             <%= f.text_field :name, required: true, label: 'Name (first and last)' %>
             <%= f.text_field :email, required: false, label: 'Email' %>
-            <%= f.text_field :bio, required: false, label: 'Bio (optional)' %>
             <%= f.password_field :password, required: true %>
-            <%= f.select :publication_id, options_for_select(@publications.map{|publication|[publication.name, publication.id]})%>
-            <%= f.select :position_id, options_for_select(@positions.map{|position|[position.name, position.id]}), :required => true%>
+            <%= f.password_field :password_confirmation, required: true%>
+            <%= f.select :publication_id, options_for_select(@publications.map{|publication|[publication.name, publication.id]}), :include_blank => true, :required => true%>
+            <%= f.select :position_id, options_for_select(@positions.map{|position|[position.name, position.id]}), :include_blank => true, :required => true%>
             <%= f.submit 'Sign Up', class: "btn btn-primary pull-right" %>
           <% end %>
         </div>

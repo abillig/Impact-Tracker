@@ -11,17 +11,25 @@ class UsersController < ApplicationController
   end
 
   def create
-    # Reporter(id: integer, name: string, bio: string, created_at: datetime, updated_at: datetime, image: string, publication_id: integer)
-    @user = User.create(user_params)
-    #removing mailer until it is fixed in development.
-    # AdminMailer.new_user(User.where(name: "Avram Billig").first, @user).deliver_later
-    session[:user_id] = @user.id
-    if @user.title == "Reporter"
-      @reporter = Reporter.create(name: params[:user][:name], bio: params[:user][:bio])
-      @reporter.publication = @user.publication
-      @reporter.save
+    if params[:user][:password] != params[:user][:password_confirmation]
+      flash[:notice] = "Passwords must match."
+      redirect_to new_user_path
+    elsif params[:user][:publication_id].blank? || params[:user][:position_id].blank?
+      flash[:notice] = "Please select a valid publication and position."
+      redirect_to new_user_path
+    else
+        # Reporter(id: integer, name: string, bio: string, created_at: datetime, updated_at: datetime, image: string, publication_id: integer)
+        @user = User.create(user_params)
+        #removing mailer until it is fixed in development.
+        # AdminMailer.new_user(User.where(name: "Avram Billig").first, @user).deliver_later
+        session[:user_id] = @user.id
+        if @user.title == "Reporter"
+          @reporter = Reporter.create(name: params[:user][:name], bio: params[:user][:bio])
+          @reporter.publication = @user.publication
+          @reporter.save
+        end
+        redirect_to root_url
     end
-    redirect_to root_url
   end
 
   def profile

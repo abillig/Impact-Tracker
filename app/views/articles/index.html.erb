@@ -1,4 +1,13 @@
 <!-- <a href="<%=new_article_path%>"><div class="plus_icon small"><span>+</span></div></a> -->
+<div class="btn-group" role="group" style="width: 100%; margin-bottom: 3%;">
+  <!-- <div class="col-sm-12"> -->
+    <button type="button" class="btn btn-default" id="toggle_article" style="background-color: #d3d3d3;">Stories</button>
+    <button type="button" class="btn btn-default" id="toggle_impact">
+      <%= link_to 'Impacts', impact_type_path((1..ImpactType.all.length).to_a.sample)%>
+    </button>
+  <!-- </div> -->
+</div>
+
 <div class="dropdown_and_search">
 <div class="col-sm-1">
   <div class="btn-group" id="reporter_dropdown">

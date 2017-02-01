@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
 gem 'bootstrap-typeahead-rails'
+gem 'handlebars_assets'
 # gem 'sprockets-rails', github: 'rails/sprockets-rails', branch: 'master'
 # gem 'sprockets', github: 'rails/sprockets', branch: 'master'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
