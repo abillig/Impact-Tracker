@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get '/search' => 'articles#search'
   get '/impact_search' => 'impacts#search'
   root "impact_types#index"
+  get 'testing' => 'impacts#testing'
 
 #should remove this duplicate
   get '/impact_search' => 'impacts#article_selector'
+  get '/basic_search' =>'impacts#basic_search'
 
   get '/impact_add_search' => 'impacts#impact_add_search', as: 'impact_add_search'
 

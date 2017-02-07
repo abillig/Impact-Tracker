@@ -1,0 +1,82 @@
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+#navbar-desktop{
+  display: none;
+}
+
+#navbar_mobile{
+  display: block;
+}
+
+#navbar_mobile li{
+  display: inline-block;
+}
+
+#navbar_mobile li li{
+  display: block;
+}
+
+#bs-example-navbar-collapse-1{
+    float: left;
+}
+
+#pub_logo{
+  float: none;
+}
+
+#article_headline_view{
+  font-size: 4.0vh
+}
+
+.impact_bubble.small img{
+  width: 25%;
+}
+
+.impact_bubble {
+  padding: 0%;
+}
+
+.impact_bubble img {
+  width: 15%;
+  padding: 2%;
+}
+
+.icon{
+  width: 5%;
+  // float: left;
+  // position: relative;
+    top: 500%;
+    vertical-align: middle;
+}
+
+.icon.small{
+  width: 15%;
+}
+
+#impact_sidebar{
+  width: 80%;
+  display: block;
+}
+
+#impact_show_icon{
+  display: none;
+}
+
+#impacts_container{
+  width: 100%;
+  margin-top: 0%;
+}
+
+.impact_checkboxes{
+  position: relative;
+}
+
+.impact_checkboxes img{
+  width: 15%;
+}
+
+.help-tip{
+  display: none; 
+}
+
+}

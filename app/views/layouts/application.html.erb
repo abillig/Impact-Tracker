@@ -13,6 +13,8 @@
   <%if current_user%>
   <img id="pub_logo" src="http://www.gannett-cdn.com/sites/<%=current_user.publication.gannett_name%>/images/favicon.png"/>
   <%end%>
+
+    <%if current_user%>
   <h4 id="logo">Impact Tracker</h4>
   <div id="navbar-desktop">
       <nav class="navbar navbar-default">
@@ -115,10 +117,14 @@
 </div><!-- /.container-fluid -->
 </nav>
 </div>
+<%end%>
 
 
 
     <%= yield %>
     </div>
+
+  </div>
+
   </body>
 </html>

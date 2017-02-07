@@ -1,0 +1,102 @@
+.label-checkbox{
+  // width: 50%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+
+input[type="checkbox"] + label{
+  width: 40px;
+ height: 40px;
+ margin: 5px;
+ // padding: 0 5px 0 0;
+ // background: url(https://media4.giphy.com/media/mUaHVvdkeBoQg/200_s.gif);
+ display: inline-block;
+ clear: left;
+ float: left;
+ cursor: pointer;
+
+}
+
+
+#impact_checkboxes{
+  position: relative;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+// #impact_checkboxes img{
+//     text-align: center;
+//   margin-left: 2%;
+//   width: 6%;
+//   opacity: .5;
+// }
+// body{
+//   font-family: sans-serif;
+// }
+
+
+.label-checkbox {
+  // width: 40%;
+  font: sans-serif;
+}
+
+.descriptor  {
+    position: absolute;
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    z-index: 1;
+    // padding: 5px;
+    // border-bottom: 1px dotted black;
+
+}
+
+.descriptor p{
+  padding: 1vw;
+}
+
+.descriptor ::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent;
+}
+.descriptor:hover{
+    visibility: visible;
+}
+
+#impact_search_submit{
+  margin-left: 10%;
+}
+
+#impact_date_selector{
+  font-size: 3vh;
+  width: 130%; 
+}
+
+#impact_date_selector input{
+  border-radius: 6px;
+  margin: 2%;
+  float: center;
+
+}
+
+
+#impact_search_results{
+  border-style: solid;
+  border-color: #bddfeb;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 2%;
+}

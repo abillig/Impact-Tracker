@@ -1,14 +1,16 @@
-<%=flash[:message].html_safe unless flash[:message].blank? %>
+<div id="full_background">
 
-<%= form_tag "/sessions" do %><br>
 
-<p>
-  <div class="col-sm-5">
+  <%=flash[:message].html_safe unless flash[:message].blank? %>
+<h4 id="background_logo">Impact Tracker</h4>
+  <%= form_tag "/sessions" do %><br>
 
-<%= bootstrap_form_tag url: '/sessions' do |f| %>
-  <%= f.text_field :name %>
-  <%= f.password_field :password %>
-  <%= f.submit 'Sign In', class: "btn btn-primary pull-right"  %>
-<% end %>
+    <div class="col-sm-8" style="margin-left: 15%; margin-top: 5%; ">
+  <%= bootstrap_form_tag url: '/sessions' do |f| %>
+    <%= f.text_field :name, placeholder: 'Email', hide_label: true, :required => true %><br>
+    <%= f.password_field :password, placeholder: 'Password', hide_label: true, :required => true %>
+    <%= f.submit 'Sign In', class: "btn btn-primary pull-right"  %>
+  <% end %>
+  </div>
+  <% end %>
 </div>
-<% end %>

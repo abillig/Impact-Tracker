@@ -1,28 +1,39 @@
+<div class="btn-group" role="group" style="width: 100%; margin-bottom: 3%;">
+  <!-- <div class="col-sm-12"> -->
+    <button type="button" class="btn btn-default" id="toggle_article">
+      <%= link_to 'Stories', articles_path%>
+    </button>
+    <button type="button" class="btn btn-default" id="toggle_impact"  style="background-color: #d3d3d3;">Impacts</button>
+  <!-- </div> -->
+</div>
+
 <%= form_tag "/impact_search", method: "get" , remote: true, class: "navbar-form"  do %>
-  <div id="impact_date_selector">
-    <%= date_field(:impact, :start) %>
-    <strong>-</strong>
-    <%= date_field(:impact, :end) %>
-  </div>
-  <br><br>
- <div class="centered_header small">Select impact type(s)</div>
+ <div class="centered_header">Select impact type(s)</div>
   <div id="impact_checkboxes">
   <%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
   <%= b.label class:"label-checkbox" do%>
         <%=b.check_box(class: "check_box", id: b.object.image)%>
 
-        <label class="bop" for="<%=b.object.image%>" id="<%=b.object.id%>b"></label>
+        <label class="type_icon" for="<%=b.object.image%>" id="<%=b.object.id%>b"></label>
         <!-- <img class="icon" src="<%=b.object.image%>"></img> -->
         <script>$('input[type="checkbox"] + label#<%=b.object.id%>b').css("background", "url(<%=b.object.image%>) no-repeat center").css("background-size", "cover");
         $('input[type="checkbox"] + label').on("click", function(){
         $(this).css("background", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2000px-Check_green_icon.svg.png) no-repeat center").css("background-size", "cover");
 
+          $.get('/impact_search', function(data){
+
+          });
+
       })
       $('input[type="checkbox"] + label#<%=b.object.id%>b').hover(function(){
-      $('#descriptor').empty();
-      $('#descriptor').html("<p><%=b.object.name%></p>");
+      $('#descriptor<%=b.object.id%>').empty();
+      $('#descriptor<%=b.object.id%>').html("<p><%=b.object.name%></p>");
       $('input[type="checkbox"] + label').css("opacity", "1.0");
       $(this).css("opacity", ".8");
+
+    })
+    $('input[type="checkbox"] + label#<%=b.object.id%>b').mouseout(function(){
+      $('#descriptor<%=b.object.id%>').empty();
 
     })
         </script>
@@ -30,12 +41,17 @@
 
 
        <%end%>
+       <div class="descriptor" id='descriptor<%=b.object.id%>'></div>
 
 <%end%>
-</div>
-  <div class="centered_header small center" id="descriptor"></div>
 
-  <%= submit_tag("Search", class: "btn btn-success") %>
+  <div id="impact_date_selector">
+    between
+    <%= date_field(:impact, :start) %>
+    &
+    <%= date_field(:impact, :end) %>
+  <%= submit_tag("Search", id: "impact_search_submit", class: "btn btn-success") %>
+    </div>
 <% end %>
 <br><br>
 

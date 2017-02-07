@@ -4,6 +4,9 @@ class ImpactsController < ApplicationController
   def index
   end
 
+  def testing
+  end
+
   def new
     @impact = Impact.new
     @articles = Article.all
@@ -40,7 +43,7 @@ class ImpactsController < ApplicationController
 
   def impact_add_search
     # @article = Article.search(params[:search]).first
-end
+  end
 
 
   def search
@@ -55,6 +58,10 @@ end
     end
     relevant_impacts = publication_impacts.map{|impact_record| impact_record.impact}
     @relevant_dates = date_selector(relevant_impacts, params[:impact][:start], params[:impact][:end])
+  end
+
+  def basic_search
+    byebug;
   end
 
   def date_selector(array, start_date, end_date)

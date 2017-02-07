@@ -3,7 +3,7 @@
   		<a class="media-left" href="#"></a>
 		<div class="media-body">
 			<dl class="dl-horizontal"> -->
-				<div class="centered_header"><%=@user.name%></div>
+				<div class="left_header"><%=@user.name%></div>
 					<%if current_user.title == "Reporter" && current_user.reporter.first.articles.length > 0 %>
 					  <div class="centered_header small">Your Articles: </div>
 						<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
@@ -33,7 +33,11 @@
 						<!-- adding this conditional because it appears that impact duplicates are being made, one without
 					db connections, so without has_manys. will investigate.  -->
 						<%if impact.impact_records.length > 0%>
-						<h4><%=impact.impact_records.first.article.headline%></h4>
+							<%if impact.impact_records.first.article%>
+								<h4><%=impact.impact_records.first.article.headline%></h4>
+							<%else%>
+								<h4><%=impact.impact_records.first.project.description%></h4>
+							<%end%>
 						<%end%>
 
 					<h5><%=impact.description%></h5>

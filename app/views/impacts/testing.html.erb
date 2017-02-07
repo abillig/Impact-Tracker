@@ -1,0 +1,34 @@
+
+
+
+
+
+
+<%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
+<%= b.label class:"label-checkbox" do%>
+      <%=b.check_box(class: "check_box", id: b.object.image)%>
+        <label class="type_icon" for="<%=b.object.image%>" id="<%=b.object.id%>b"></label>
+      <!-- <img class="icon" src="<%=b.object.image%>"></img> -->
+      <script>$('input[type="checkbox"] + label#<%=b.object.id%>b').css("background", "url(<%=b.object.image%>) no-repeat center").css("background-size", "cover");
+      $('input[type="checkbox"] + label').on("click", function(){
+      $(this).css("background", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2000px-Check_green_icon.svg.png) no-repeat center").css("background-size", "cover");
+
+        $.get('/impact_search', function(data){
+          return b;
+        });
+
+    })
+    $('input[type="checkbox"] + label#<%=b.object.id%>b').hover(function(){
+    $('#descriptor').empty();
+    $('#descriptor').html("<p><%=b.object.name%></p>");
+    $('input[type="checkbox"] + label').css("opacity", "1.0");
+    $(this).css("opacity", ".8");
+
+  })
+      </script>
+
+
+
+     <%end%>
+
+<%end%>
