@@ -1,12 +1,10 @@
-<div id="full_background">
-  <h4 id="background_logo">Impact Tracker</h4>
 
   <% if flash[:notice]%>
     <div class="alert alert-warning"><%= flash[:notice] %></div>
   <%end%>
 
   <div class="panel-body">
-      <div class="col-sm-8"  style="margin-left: 15%; margin-top: 5%; color: white;">
+      <div class="col-sm-8 form"  style="margin-top: 5%;">
           <div class="container-fluid">
             <%= bootstrap_form_for(@user) do |f| %>
               <%= f.text_field :name, required: true, label: 'Name (first and last)' %>
@@ -20,5 +18,3 @@
           </div>
       </div>
   </div>
-
-</div>

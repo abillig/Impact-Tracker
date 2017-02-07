@@ -1,38 +1,25 @@
-
-
 <% if current_user%>
 <h1 class="headline_view">Add an Impact</h1>
 
-
 <div class="impact_bubbles small cover_page">
-
-    <%@impact_types.sort.each do |impact_type|%>
-
-<a href=<%=impact_selector_id_path(impact_type.id)%>>
-        <div class="impact_package">
-              <div class="help-tip">
-              	<p><%=impact_type.name%></p>
-              </div>
-
+  <%@impact_types.sort.each do |impact_type|%>
+      <a href=<%=impact_selector_id_path(impact_type.id)%>>
+          <div class="impact_package">
+            <div class="help-tip">
+            	<p><%=impact_type.description%></p>
+            </div>
             <div class="impact_bubble small">
               <img class="icon" src=<%=impact_type.image%>></img>
-
               <div class="impact_bubble_text">
                 <h4><%=impact_type.name%></h4>
               </div>
-
             </div>
-        </div>
-
-</a>
+          </div>
+        </a>
     <%end%>
 </div>
+
 <%else%>
-<!-- <video id="news_video" controls>
-  <source src="/assets/it_lohud.mp4" type="video/mp4">
-  <source src="it_lohud.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video> -->
 
 <div class="fullscreen-bg">
     <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
@@ -45,13 +32,11 @@
   <div id="opener_contents">
     <h1 class="clip-text clip-text-one" id="opener_header">Impact Tracker</h1>
     <h3 class="opener_text" id="opener_subhead">Journalism is about more than page views and clicks.
-      <br>Measure the real-world impact of your work.</h3>
-
+      <br>Measure the real-world impact of your work.
+    </h3>
     <a href="<%=new_user_path%>"><button type="button" class="button big blue" id="first_button">Sign Up</button></a>
     <a href="<%=new_session_path%>"><button type="button" class="button big green">Sign In</button></a>
   </div>
-  <!-- <hr class="fancy-line"></hr> -->
 </div>
-<!-- <div class="welcome">Welcome to the Impact Tracker</div> -->
-<!-- <div class="welcome">Please sign in or sign up</div> -->
+
 <%end%>

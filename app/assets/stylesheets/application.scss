@@ -9,11 +9,32 @@
 @import "mobile.scss";
 @import "jquery-ui/datepicker";
 
+.form {
+  margin-left: 15%;
+}
+
 #page_top{
   background-color: #667485;
+}
+
+#navbar-desktop{
+  background-color: #667485;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
 }
 
+#section_toggle{
+  margin-top: 2%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 3%;
+}
+
+.nav.navbar-nav #explore a{
+  color: #f9ffff;
+  text-decoration: none;
+}
 
 .opener_text{
   margin-left: 5%;
@@ -208,8 +229,10 @@ video {
 }
 
 body {
-  padding: 1%;
+  background-color: #f7f7f7;
+  // padding: 1%;
   font-family: Arial;
+  -webkit-font-smoothing: antialiased;
 }
 
 #full_background{
@@ -277,16 +300,19 @@ color: gray;
   margin-left: auto;
 }
 
-#article_display_container{
-  height: 30%;
+.download_icon{
+  margin-right: 2%;
+  position: absolute; 
 }
 
-#article_headline_view{
-  font-size: 50px;
+.alert{
+  margin-top: 2%;
 }
 
 .edit_button{
   float: right;
+  margin-top: 1%;
+  margin-right: 1%;
   width: 10%;
   background: white;
   color: black;
@@ -332,11 +358,6 @@ text-align: center;
 
   display: flex;
   // align-items: center;
-}
-
-#reporter_dropdown{
-  margin-left: -15px;
-  margin-top: 13%;
 }
 
 .impact_list{

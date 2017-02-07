@@ -82,6 +82,7 @@ class ImpactRecordsController < ApplicationController
     @impact.description = params[:impact_record][:impact]
     @impact_record.save
     @impact.save
+    redirect_to article_path(@impact_record.article)
   end
 
   def stats

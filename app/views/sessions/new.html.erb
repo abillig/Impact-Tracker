@@ -1,11 +1,9 @@
-<div id="full_background">
 
 
   <%=flash[:message].html_safe unless flash[:message].blank? %>
-<h4 id="background_logo">Impact Tracker</h4>
   <%= form_tag "/sessions" do %><br>
 
-    <div class="col-sm-8" style="margin-left: 15%; margin-top: 5%; ">
+    <div class="col-sm-6" style="margin-left: 25%; margin-top: 5%; ">
   <%= bootstrap_form_tag url: '/sessions' do |f| %>
     <%= f.text_field :name, placeholder: 'Email', hide_label: true, :required => true %><br>
     <%= f.password_field :password, placeholder: 'Password', hide_label: true, :required => true %>
@@ -13,4 +11,3 @@
   <% end %>
   </div>
   <% end %>
-</div>
