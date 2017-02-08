@@ -1,18 +1,14 @@
-<div class="panel-body">
-    <div class="col-sm-8 form">
-        <div class="container-fluid">
-          <h1> Update Impact </h1>
-<%= bootstrap_form_for @impact_record do |f| %>
-  <%= f.text_field :article, label: 'Story/Project that led to the impact', value: @article.headline, readonly: true%>
-  <%= f.select(:impact_type) do %>
-    <% @impact_types.each do |impact_type| -%>
-      <%= content_tag(:option, impact_type.name, value: impact_type.name) %>
-    <% end%>
-  <% end%>
-  <%= f.date_field :impact_id, label: 'When did the impact happen?', value: @impact_date, required: true %>
-  <%= f.text_area :impact, label: 'Please describe the impact in full sentences.', value: @description, required: true %><br />
-  <%= f.submit 'Update Impact' %>
-<% end %>
-</end>
-</end>
-</end>
+<div class="col-sm-8 form">
+  <h1> Update Impact </h1>
+  <%= bootstrap_form_for @impact_record do |f| %>
+    <%= f.text_field :article, label: 'Story/Project that led to the impact', value: @article.headline, readonly: true%>
+      <%= f.select(:impact_type) do %>
+        <% @impact_types.each do |impact_type| -%>
+          <%= content_tag(:option, impact_type.name, value: impact_type.name) %>
+        <% end%>
+      <% end%>
+    <%= f.date_field :impact_id, label: 'When did the impact happen?', value: @impact_date, required: true %>
+    <%= f.text_area :impact, label: 'Please describe the impact in full sentences.', value: @description, required: true %><br />
+    <%= f.submit 'Update Impact' %>
+  <% end %>
+</div>

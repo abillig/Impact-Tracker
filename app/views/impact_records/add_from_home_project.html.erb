@@ -1,14 +1,10 @@
-<div class="panel-body">
-    <div class="col-sm-5">
-        <div class="container-fluid">
-          <h1> New Impact </h1>
-<%= bootstrap_form_for @impact_record do |f| %>
-  <%= f.text_field :project, label: 'Project Name', value: @project.description, readonly: true%>
-  <%= f.text_field :impact_type, label: 'Impact Type', value: @impact_type.name, readonly: true%>
-  <%= f.date_field :impact_id, label: 'Impact Date', required: true %>
-  <%= f.text_area :impact, label: 'Description', required: true %><br />
-  <%= f.submit 'Add Impact' %>
-<% end %>
-</end>
-</end>
-</end>
+<div class="col-sm-8 form">
+  <h1> New Impact </h1>
+  <%= bootstrap_form_for @impact_record do |f| %>
+    <%= f.text_field :project, label: 'Story/Project that led to the impact', value: @project.description, readonly: true%>
+    <%= f.text_field :impact_type, label: 'Impact Type', value: @impact_type.name, readonly: true%>
+    <%= f.date_field :impact_id, label: 'When did the impact happen?', required: true %>
+    <%= f.text_area :impact, label: 'Please describe the impact in full sentences.', required: true %><br />
+    <%= f.submit 'Add Impact' %>
+  <% end %>
+</div>

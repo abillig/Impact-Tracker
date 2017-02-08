@@ -1,14 +1,14 @@
 <div class="page_container">
   <h1>In the past 30 days, <strong><%=current_user.publication.name%></strong> logged
-    <strong><%=@last_month_impacts.length%></strong> impacts.</h1>
-
-
+    <strong><%=@last_month_impacts.length%></strong> impacts.
+  </h1>
   <div id="recent_impact_types">
-  <%@types_hash.sort_by{|k,v|v}.reverse.each do |type_array|%>
-
-  <h3><%= link_to type_array[1].to_s, stats_select_path(type_array[0]), remote: true %> <%=type_array[0]%>s</h3>
-  <%end%>
+    <%@types_hash.sort_by{|k,v|v}.reverse.each do |type_array|%>
+      <h3>
+        <%= link_to type_array[1].to_s, stats_select_path(type_array[0]), remote: true %>
+        <%=type_array[0]%>s
+      </h3>
+    <%end%>
   </div>
-
   <div id="impact_stats_space"></div>
 </div>

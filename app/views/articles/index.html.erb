@@ -1,14 +1,21 @@
 <div class="btn-group" id="section_toggle" role="group">
   <a href="<%=impacts_path%>">
-    <button type="button" class="btn btn-default" id="toggle_impact">Impacts</button>
+    <button type="button" class="btn btn-default" id="toggle_impact">
+      Impacts
+    </button>
   </a>
-    <button type="button" class="btn btn-default" id="toggle_article" style="background-color: #d3d3d3; box-shadow: 1px 1px 5px #555 inset; position: absolute;">Stories</button>
+    <button type="button" class="btn btn-default" id="toggle_article" style="background-color: #d3d3d3; box-shadow: 1px 1px 5px #555 inset; position: absolute;">
+      Stories
+    </button>
 </div>
 
 <div class="dropdown_and_search">
   <div class="col-sm-1">
     <div class="btn-group" id="reporter_dropdown">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Reporters <span class="caret"></span></button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          Reporters
+          <span class="caret"></span>
+        </button>
         <ul class="dropdown-menu scrollable-menu" role="menu">
           <%@reporters.shuffle.each do |reporter|%>
             <li>
@@ -18,7 +25,7 @@
             </li>
           <%end%>
         </ul>
-      </div>
+    </div>
   </div>
   <%= render partial: "article_search"%>
 </div>

@@ -20,8 +20,8 @@ class Article < ApplicationRecord
   end
 
   def self.search(term)
-    article_results = Article.where("headline like ?", "%#{term}%")
-    project_results = Project.where("description like ?", "%#{term}%")
+    article_results = Article.where("headline like ?", "%#{term}%") + Article.where("headline like ?", "%#{term.capitalize}%")
+    project_results = Project.where("description like ?", "%#{term}%") + Project.where("description like ?", "%#{term.capitalize}%")
     article_results + project_results
   end
 

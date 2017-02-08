@@ -1,31 +1,26 @@
-<!-- <h4 id="selected_impact_type"><%=ImpactType.find(params[:id]).name%></h4> -->
-<div id="selector_elements">
-  <div class="col-sm-6">
-    <div class="jumbotron vertical-center">
-    <div id="selector_text">
-    <h3>Which story or project led to the <%=ImpactType.find(params[:id]).addition_name%>?</h3>
-    <h6><em>Note: if the impact is tied to a project as a whole, choose that project. If it's tied to a particular story, choose that story.</em></h6>
-  <%= form_tag "/impact_add_search", :method => 'get', remote: true, class: "navbar-form navbar-left" do %>
-    <div class="form-group">
-      <input id="selector_value" type="text" name="search" class="form-control">
-      <input style="display:none" type="text" name="impact_id" value=<%=params[:id]%>>
+  <div id="selector_containers">
+    <div class="selector_container">
+        <h3>
+          Which story or project led to the <%=ImpactType.find(params[:id]).addition_name%>?
+        </h3>
+        <h6>
+          <em>
+            Note: if the impact is tied to a project as a whole, choose that project. If it's tied to a particular story, choose that story.
+          </em>
+        </h6>
+        <%= form_tag "/impact_add_search", :method => 'get', remote: true, class: "navbar-form navbar-left" do %>
+          <div class="form-group">
+            <input id="selector_value" type="text" name="search" class="form-control">
+            <input style="display:none" type="text" name="impact_id" value=<%=params[:id]%>>
+          </div>
+          <button type="submit" class="btn btn-success">Search</button>
+        <%end%>
     </div>
-
-    <button type="submit" class="btn btn-success">Search</button>
-    <%end%>
-      </div>
+    <div class="selector_container" id="second_selector">
+        <h3>Don't see it listed?</h3><br>
+        <button class="btn btn-default"><%= link_to 'Add a new story', new_article_path%></button>
+        <button class="btn btn-default"><%= link_to 'Add a new project', new_project_path%></button>
     </div>
-</div>
-    <div class="col-sm-6">
-      <div class="jumbotron vertical-center" id="selector_addition_box">
-        <div id="selector_text">
-          <h3>Don't see it listed?</h3><br>
-          <button class="btn btn-default"><%= link_to 'Add a new story', new_article_path%></button>
-          <button class="btn btn-default"><%= link_to 'Add a new project', new_project_path%></button>
-        </div>
-      </div>
-    </div>
-
-</div>
+  </div>
 
 <div id="article_choices"></div>

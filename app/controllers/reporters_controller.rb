@@ -1,13 +1,5 @@
 class ReportersController < ApplicationController
 
-  def index
-    respond_to do |format|
-      format.html
-      format.json { @reporters = Reporter.search(params[:term]) }
-    end
-    # @reporters = Reporter.all
-  end
-
   def show
     @reporter = Reporter.find(params[:id])
   end

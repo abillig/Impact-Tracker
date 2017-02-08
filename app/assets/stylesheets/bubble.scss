@@ -1,0 +1,74 @@
+.impact_bubbles{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.impact_bubble{
+  box-shadow: 1px 1px 5px #555 inset;
+}
+
+.impact_bubbles.small{
+  margin-left: 5%;
+  display: inline-block;
+  width: 100%;
+}
+
+.impact_bubbles.left{
+  float: left;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 80%;
+}
+
+.impact_bubble.small{
+  width: 100%;
+}
+
+.impact_bubble.small h4{
+  color: black;
+}
+
+.impact_bubble.small img{
+  // width: 10%;
+  width: 50px;
+  margin-right: 10%;
+  margin-left: 3%;
+  padding: 1%;
+}
+
+.impact_bubble.small img:hover{
+  width: 52px;
+}
+
+.impact_bubble img {
+  width: 50px;
+}
+
+.impact_bubble{
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1.5%;
+  box-sizing: border-box;
+ -webkit-border-radius: 20px;
+ -moz-border-radius: 20px;
+ border-radius: 20px;
+ background: -webkit-linear-gradient(#bddfeb,#d6ebf2, #bddfeb);
+
+  // background: -webkit-linear-gradient(#ff7f7f,#ff9999, #ff7f7f);
+  // width: 80%;
+
+}
+
+.impact_bubble.small:hover{
+  background: -webkit-linear-gradient(#d6ebf2,#bddfeb, #d6ebf2);
+}
+
+.impact_bubble_text{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.impact_bubble_text.left_padded{
+  padding-left: 12%;
+}

@@ -1,8 +1,8 @@
-<div class="col-sm-8">
-<h1> Add a Project </h1>
+<div class="col-sm-8 form">
+  <h1> Add a Project </h1>
 
-<%= bootstrap_form_for @project do |f| %>
-  <%= f.text_field :description, required: true, label: 'Name' %>
-  <%= f.submit %>
-<% end %>
+  <%= bootstrap_form_for @project do |f| %>
+    <%= f.text_field :description, required: true, label: 'Name' %>
+    <%= f.submit %>
+  <% end %>
 </div>

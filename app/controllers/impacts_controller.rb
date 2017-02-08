@@ -4,15 +4,6 @@ class ImpactsController < ApplicationController
   def index
   end
 
-  def testing
-  end
-
-  def new
-    @impact = Impact.new
-    @articles = Article.all
-  end
-
-
   def selector
 
   end

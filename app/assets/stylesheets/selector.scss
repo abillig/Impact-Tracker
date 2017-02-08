@@ -6,3 +6,21 @@
    margin-right: auto;
    margin-left: auto;
 }
+
+#selector_containers{
+  margin-left: 5%;
+}
+
+.selector_container{
+  width: 40%;
+  margin-left: 5%;
+  // position: relative;
+  display: inline-block;
+  background-color: #cfe8f0;
+  height: 40vh;
+  margin-top: 2%;
+  border-radius: 25px;
+  padding: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+}

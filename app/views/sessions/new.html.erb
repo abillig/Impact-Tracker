@@ -1,13 +1,11 @@
+<%=flash[:message].html_safe unless flash[:message].blank? %>
 
-
-  <%=flash[:message].html_safe unless flash[:message].blank? %>
-  <%= form_tag "/sessions" do %><br>
-
-    <div class="col-sm-6" style="margin-left: 25%; margin-top: 5%; ">
-  <%= bootstrap_form_tag url: '/sessions' do |f| %>
-    <%= f.text_field :name, placeholder: 'Email', hide_label: true, :required => true %><br>
-    <%= f.password_field :password, placeholder: 'Password', hide_label: true, :required => true %>
-    <%= f.submit 'Sign In', class: "btn btn-primary pull-right"  %>
-  <% end %>
+<%= form_tag "/sessions" do %><br>
+  <div class="col-sm-6" style="margin-left: 25%; margin-top: 5%; ">
+    <%= bootstrap_form_tag url: '/sessions' do |f| %>
+      <%= f.text_field :name, placeholder: 'Email', hide_label: true, :required => true %><br>
+      <%= f.password_field :password, placeholder: 'Password', hide_label: true, :required => true %>
+      <%= f.submit 'Sign In', class: "btn btn-primary pull-right"  %>
+    <% end %>
   </div>
-  <% end %>
+<% end %>
