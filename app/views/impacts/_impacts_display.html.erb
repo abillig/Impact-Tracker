@@ -1,22 +1,30 @@
-<%byebug%>
 <%impacts.each do |impact|%>
-<div class="impact_bubbles">
-<div class="impact_package large">
+  <div class="impact_bubbles">
+    <div class="impact_package large">
 
-<div class="impact_bubble article">
-<img class="icon" src=<%=impact.impact_types.first.image%>></img>
-<!-- <%=impact.impact_types.first.name%> -->
-<%if impact.impact_date%>
-<em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
-<%end%><!-- <br> -->
+      <div class="impact_bubble article">
+        <img class="icon" src=<%=impact.impact_types.first.image%>></img>
+        <!-- <%=impact.impact_types.first.name%> -->
+        <%if impact.impact_date%>
+          <em>
+            <h6 id="impact_bubble_date">
+              <%=impact.impact_date.strftime("%m/%d/%Y")%>
+            </h6>
+          </em>
+        <%end%>
 
-<div class="impact_bubble_text">
-<h4><%=impact.impact_records.first.article.headline%></h4>
-<h5><%=impact.description%></h5>
-</div>
-</div>
-</div>
-</div>
+        <div class="impact_bubble_text">
+          <h4>
+            <%=impact.impact_records.first.article.headline%>
+          </h4>
+          <h5>
+            <%=impact.description%>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
 <%end%>
- <div class = "edit_button"><%=link_to "txt download", download_impacts_path(:impacts => impacts)%></div>
-<!-- <a class = "edit_button" href=<%=download_impacts_path(impacts)%>>Download <br>search results</a> -->
+<a href=<%=download_impacts_path(:impacts => impacts)%>>
+  <img class="icon small download_icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Download_media.svg/453px-Download_media.svg.png">
+</a>

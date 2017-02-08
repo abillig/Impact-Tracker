@@ -9,14 +9,14 @@
 }
 
 #article_display_container{
-  height: 30%;
+  height: 30vh;
 }
 
 #article_headline_view{
   font-size: 50px;
 }
 
-#article_search_results, #article_choices{
+#article_search_results{
   margin-left: 4%;
   margin-right: 4%;
   margin-top: 2%;
@@ -31,4 +31,8 @@
 .dropdown_and_search{
   margin-left: 3.5%;
   margin-right: 5%;
+}
+
+#profile_articles{
+  position: absolute;
 }

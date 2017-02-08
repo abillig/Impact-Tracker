@@ -13,7 +13,7 @@
    <div class="centered_header">
      Select impact type(s)
    </div>
-  <div id="impact_checkboxes">
+<div id="impact_checkboxes">
   <%=collection_check_boxes(:impact, :impact_types, ImpactType.all, :id, :name)do |b|%>
     <%= b.label class:"label-checkbox" do%>
         <%=b.check_box(class: "check_box", id: b.object.image)%>
@@ -32,10 +32,24 @@
               $('input[type="checkbox"] + label#<%=b.object.id%>b').mouseout(function(){
                 $('#descriptor<%=b.object.id%>').empty();
               })
+
+              $('#select_all').on("click", function(){
+                $('input[type="checkbox"]').prop('checked', true);
+                var num_array = [1,2,3,4,5,6,7,8,9,10,11,12]
+                num_array.forEach(function(num){
+                  $('#'+String(num)+'b').css("background", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2000px-Check_green_icon.svg.png) no-repeat center").css("background-size", "cover");
+                })
+              })
           </script>
       <%end%>
       <div class="descriptor" id='descriptor<%=b.object.id%>'></div>
   <%end%>
+
+    <div id="select_all">
+      <button class="btn btn-primary" style="float: right">
+        Select All
+      </button>
+    </div>
 
   <div id="impact_date_selector">
     between
@@ -47,4 +61,14 @@
 <% end %>
 <br><br>
 
-<div id="impact_search_results"></div>
+  <div id="impact_search_results"></div>
+  <script>
+  $('#select_all').on("click", function(){
+    $('input[type="checkbox"]').prop('checked', true);
+    var num_array = [1,2,3,4,5,6,7,8,9,10,11,12]
+    num_array.forEach(function(num){
+      $('#'+String(num)+'b').css("background", "url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Check_green_icon.svg/2000px-Check_green_icon.svg.png) no-repeat center").css("background-size", "cover");
+    })
+  })
+  </script>
+</div>

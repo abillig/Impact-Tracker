@@ -1,7 +1,11 @@
 <%articles.each do |article_or_project|%>
-  <%if article_or_project.class == Article%>
-    <%if article_or_project.reporters.map{|reporter|reporter.name}.include?(current_user.name) || current_user.title != "Reporter"%>
-    <div class="col-sm-4">
+    <%if article_or_project.class == Article%>
+      <%if article_or_project.reporters.map{|reporter|reporter.name}.include?(current_user.name) || current_user.title != "Reporter"%>
+        <%if articles.length == 1%>
+          <div class="col-sm-6">
+        <%else%>
+          <div class="col-sm-4">
+        <%end%>
       <div id="article_display_container">
         <%imp_id = params[:impact_id]%>
         <a href="<%=add_from_home_path(article_or_project.id, imp_id)%>">
@@ -16,8 +20,12 @@
       </div>
       <%end%>
     <%elsif article_or_project.class == Project%>
-    <div class="col-sm-4">
-      <div id="article_display_container">
+        <%if articles.length == 1%>
+          <div class="col-sm-6">
+        <%else%>
+          <div class="col-sm-4">
+        <%end%>
+       <div id="article_display_container">
         <%imp_id = params[:impact_id]%>
         <a href="<%=add_from_home_project_path(article_or_project.id, imp_id)%>">
           <div class="panel panel-default">
@@ -29,5 +37,5 @@
         </a>
       </div>
     </div>
-    <%end%>
+  <%end%>
 <%end%>

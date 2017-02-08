@@ -82,7 +82,8 @@ input[type="checkbox"] + label{
 
 #impact_date_selector{
   font-size: 3vh;
-  width: 130%; 
+  width: 130%;
+    margin-top: 10%;
 }
 
 #impact_date_selector input{
@@ -94,9 +95,9 @@ input[type="checkbox"] + label{
 
 
 #impact_search_results{
-  border-style: solid;
-  border-color: #bddfeb;
-    border-width: 2px;
-    border-radius: 5px;
-    padding: 2%;
+  // border-style: solid;
+  // border-color: #bddfeb;
+  //   border-width: 2px;
+  //   border-radius: 5px;
+  //   padding: 2%;
 }

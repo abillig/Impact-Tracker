@@ -1,3 +1,7 @@
+<% if flash[:notice]%>
+  <div class="alert alert-warning"><%= flash[:notice] %></div>
+<%end%>
+
 <div class="col-sm-8 form">
   <h1> Add an Article </h1>
 
@@ -6,7 +10,7 @@
     <%= f.text_field :url, required: true %>
     <%= f.date_field :date, required: true, label: 'Online publication date' %>
     <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}), :include_blank => true, required: true %>
-    <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}), :include_blank => true, :required => true %>
+    <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}), :include_blank => true%>
     <%= f.submit %>
   <% end %>
 </div>

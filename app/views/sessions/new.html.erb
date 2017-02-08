@@ -3,7 +3,7 @@
 <%= form_tag "/sessions" do %><br>
   <div class="col-sm-6" style="margin-left: 25%; margin-top: 5%; ">
     <%= bootstrap_form_tag url: '/sessions' do |f| %>
-      <%= f.text_field :name, placeholder: 'Email', hide_label: true, :required => true %><br>
+      <%= f.text_field :email, placeholder: 'Email', hide_label: true, :required => true %><br>
       <%= f.password_field :password, placeholder: 'Password', hide_label: true, :required => true %>
       <%= f.submit 'Sign In', class: "btn btn-primary pull-right"  %>
     <% end %>

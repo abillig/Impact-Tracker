@@ -33,9 +33,18 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create({headline: params[:article][:headline],url: params[:article][:url],info: params[:article][:info],date: params[:article][:date], project_id: params[:article][:project_id]})
-    article.reporters << Reporter.find_by(name: params[:article][:reporters])
-    redirect_to article_path(article.id)
+    if params[:article][:reporters].blank?
+      flash[:notice] = "Please list a reporter."
+      redirect_to new_article_path
+    else
+      article = Article.create({headline: params[:article][:headline],url: params[:article][:url],info: params[:article][:info],date: params[:article][:date], project_id: project_id_decider(params[:article][:project_id])})
+      article.reporters << Reporter.find_by(name: params[:article][:reporters])
+      redirect_to article_path(article.id)
+    end
+  end
+
+  def project_id_decider(params)
+    params.blank? ? 1.to_s : params
   end
 
   def search
