@@ -29,7 +29,7 @@ class ImpactRecordsController < ApplicationController
       project = Project.find_by(description: params[:impact_record][:project])
     end
 #prevent creation of impact if reporter didn't write article or isn't editor
-      if current_user.is_reporter && article.reporter_names.include?(current_user.name) == false
+      if params[:impact_record][:article] && current_user.is_reporter && article.reporter_names.include?(current_user.name) == false
         flash[:notice] = "You can only add impacts to articles you have authored. Please contact the article's reporter to add an impact."
         redirect_to article_path(article)
       else

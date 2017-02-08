@@ -1,7 +1,7 @@
   <div id="selector_containers">
     <div class="selector_container">
         <h3>
-          Which story or project led to the <%=ImpactType.find(params[:id]).addition_name%>?
+          Which story or project led to the <%=ImpactType.find(params[:id]).addition_name%>? Please search below.
         </h3>
         <h6>
           <em>
@@ -17,7 +17,7 @@
         <%end%>
     </div>
     <div class="selector_container" id="second_selector">
-        <h3>Don't see it listed?</h3><br>
+        <h3>Don't see it listed in the search results?</h3><br>
         <button class="btn btn-default"><%= link_to 'Add a new story', new_article_path%></button>
         <button class="btn btn-default"><%= link_to 'Add a new project', new_project_path%></button>
     </div>
