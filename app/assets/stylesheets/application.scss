@@ -40,7 +40,12 @@ body {
   margin-bottom: 3%;
 }
 
-.nav.navbar-nav #explore a{
+.nav.navbar-nav li a:hover{
+  background-color: #738ca2;
+}
+
+
+ #explore a{
   color: #f9ffff;
   text-decoration: none;
 }
