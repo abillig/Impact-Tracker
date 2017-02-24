@@ -66,7 +66,7 @@
           <%end%>
 
             <div class="impact_bubble_text" style="text-align: left">
-              <h4><%=impact.description.html_safe%></h4>
+              <h4><%=impact.description.gsub(/\n/, '<br>').html_safe%></h4>
             </div>
         </div>
       </div>
