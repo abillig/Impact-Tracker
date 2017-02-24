@@ -9,8 +9,9 @@
 	If you'd like to edit an impact, click 'edit this impact' on the impact's
 	display box.<br></em>
 </h4>
-<%if current_user.title == "Reporter" && current_user.reporter.first.articles.length > 0 %>
+ <%if current_user.title == "Reporter" && current_user.reporter.first.articles.length > 0 %>
 			<%= render partial: "./articles/articles_display", locals: { articles: @user.articles.uniq} %>
+	<%end%>
 		<div class="list_container">
 
 			<%@user.impacts.each do |impact|%>
@@ -58,6 +59,6 @@
 				</div>
 			<%end%>
 		</div>
-<%end%>
+
 
 </div>

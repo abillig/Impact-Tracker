@@ -6,7 +6,7 @@
     <%end%>
 <% end %>
 
-<%if @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication%>
+<%if @article.reporter_name == current_user.name && @article.reporters.first.publication == current_user.publication || current_user.position.name != "Reporter"%>
   <div class="edit_button"><a href="<%=edit_article_path%>">Edit this article</a></div>
   <br>
 <%end%>
@@ -33,7 +33,7 @@
                     <em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
                 <%end%>
                 <div class="impact_bubble_text">
-                  <h4><%=impact.description%></h4>
+                  <h4><%=impact.description.html_safe%></h4>
                 </div>
             </div>
         </div>

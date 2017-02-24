@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   #adding new projects
   get '/add_from_home_project/:project/:impact_id' => "impact_records#add_from_home_project", as: 'add_from_home_project'
   get '/download/:id' => 'articles#articles_download', as: 'download'
+  get '/project_download/:id' => 'projects#project_download', as: 'project_download'
   get '/download_impacts' => 'impacts#download', as: 'download_impacts'
   get '/stats' => 'impact_records#stats'
   get '/stats_select/:type' => 'impact_records#stats_select', as: 'stats_select'

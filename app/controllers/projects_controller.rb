@@ -12,4 +12,23 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   end
 
+  def project_download
+    impacts = ""
+    @project = Project.find(params[:id])
+    impacts << @project.description + "\n\n"
+    impacts << "Articles: \n"
+    Project.find(params[:id]).articles.each do |article|
+      impacts << article.headline + " by " + article.reporter_name + "\n\n"
+    end
+    impacts << "\nImpacts: \n"
+    Project.find(params[:id]).impacts.each do |impact|
+      impacts << impact.impact_types.first.name + ": " + impact.description + "\n\n"
+    end
+
+    send_data impacts,
+      :type => 'text',
+      :disposition => "attachment; filename=" + @project.description
+  end
+
+
 end

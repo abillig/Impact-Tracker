@@ -8,7 +8,7 @@
         <% end%>
       <% end%>
     <%= f.date_field :impact_id, label: 'When did the impact happen?', value: @impact_date, required: true %>
-    <%= f.text_area :impact, label: 'Please describe the impact in full sentences.', value: @description, required: true %><br />
+    <%= f.text_area :impact, label: 'Please describe the impact in full sentences, and explain how the coverage led to the impact. If you are including a link, please format it properly in HTML.', value: @description, required: true %><br />
     <%= f.submit 'Update Impact' %>
   <% end %>
 </div>

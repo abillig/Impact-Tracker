@@ -7,9 +7,9 @@
 
   <%= bootstrap_form_for @article do |f| %>
     <%= f.text_field :headline, required: true %>
-    <%= f.text_field :url, required: true %>
+    <%= f.text_field :url, label: 'URL', required: true %>
     <%= f.date_field :date, required: true, label: 'Online publication date' %>
-    <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}), :include_blank => true, required: true %>
+    <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}), :label => "Reporter", :include_blank => true, required: true %>
     <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}), :include_blank => true%>
     <%= f.submit %>
   <% end %>
