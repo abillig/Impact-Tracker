@@ -12,7 +12,11 @@ class ImpactRecordsController < ApplicationController
   def edit
     @impact_record = ImpactRecord.find(params[:id])
     @impact_types = ImpactType.all.uniq
-    @article=@impact_record.article
+    if @impact_record.article
+      @article=@impact_record.article
+    elsif @impact_record.project
+      @project=@impact_record.project
+    end
     @description = @impact_record.impact.description
     @impact_date = @impact_record.impact.impact_date
     if current_user.is_reporter && @article.reporter_names.include?(current_user.name) == false
