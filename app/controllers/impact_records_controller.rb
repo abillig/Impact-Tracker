@@ -23,7 +23,6 @@ class ImpactRecordsController < ApplicationController
       flash[:notice] = "You can only add impacts to articles you have authored. Please contact the article's reporter to add an impact."
       redirect_to article_path(@article)
     end
-
   end
 
   def create
@@ -86,7 +85,11 @@ class ImpactRecordsController < ApplicationController
     @impact.description = params[:impact_record][:impact]
     @impact_record.save
     @impact.save
-    redirect_to article_path(@impact_record.article)
+    if @impact_record.article
+      redirect_to article_path(@impact_record.article)
+    elsif @impact_record.project
+      redirect_to project_path(@impact_record.project)
+    end
   end
 
   def stats
