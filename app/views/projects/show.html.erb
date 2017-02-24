@@ -57,7 +57,7 @@
         <!-- <img class="icon" src=<%=impact.impact_types.first.image%>></img> -->
 
         <div class="impact_bubble article">
-          <a href="<%=impact_type_path(impact.impact_type.id)%>">
+          <a href="<%=impacts_path%>">
             <img class="icon" src=<%=impact.impact_types.first.image%>></img>
           </a>
           <!-- <%=impact.impact_types.first.name%> -->
@@ -68,6 +68,13 @@
             <div class="impact_bubble_text" style="text-align: left">
               <h4><%=impact.description.gsub(/\n/, '<br>').html_safe%></h4>
             </div>
+            <%if impact.user && impact.impact_records.length > 0 && current_user == impact.user%>
+              <div class="edit_button">
+                <a href="<%=edit_impact_record_path(impact.impact_records.first.id)%>">
+                  Edit
+                </a>
+              </div>
+            <%end%>
         </div>
       </div>
     </div>

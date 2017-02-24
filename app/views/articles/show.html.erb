@@ -33,8 +33,15 @@
                     <em><h6 id="impact_bubble_date"><%=impact.impact_date.strftime("%m/%d/%Y")%></h6></em>
                 <%end%>
                 <div class="impact_bubble_text">
-                  <h4><%=impact.description.html_safe%></h4>
+                  <h4><%=impact.description.gsub(/\n/, '<br>').html_safe%></h4>
                 </div>
+                <%if impact.user && impact.impact_records.length > 0 && current_user == impact.user%>
+                  <div class="edit_button">
+                    <a href="<%=edit_impact_record_path(impact.impact_records.first.id)%>">
+                      Edit
+                    </a>
+                  </div>
+                <%end%>
             </div>
         </div>
   </div>
