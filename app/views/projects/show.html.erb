@@ -8,7 +8,12 @@
 <% end %>
 
 <div id="article_header">
-  <h1 id="article_headline_view"><%=@project.description%></h1>
+  <%if @project.url == nil%>
+    <h1 id="article_headline_view"><%=@project.name%></h1>
+  <%else%>
+    <a href="<%=@project.url%>"><h1 id="article_headline_view"><%=@project.name%></h1></a>
+  <%end%>
+  <h3><%=@project.description%></h3>
   <div id="sub_head">
   </div>
 

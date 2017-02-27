@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create({description: params[:project][:description]})
-    redirect_to impact_types_path
+    project = Project.create({name: params[:project][:name], description: params[:project][:description]})
+    redirect_to project_path(project)
   end
 
   def show
@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   def project_download
     impacts = ""
     @project = Project.find(params[:id])
+    impacts << @project.name + "\n\n"
     impacts << @project.description + "\n\n"
     impacts << "Articles: \n"
     Project.find(params[:id]).articles.each do |article|
@@ -27,7 +28,7 @@ class ProjectsController < ApplicationController
 
     send_data impacts,
       :type => 'text',
-      :disposition => "attachment; filename=" + @project.description
+      :disposition => "attachment; filename=" + @project.name
   end
 
 

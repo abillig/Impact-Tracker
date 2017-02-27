@@ -16,7 +16,7 @@
             <%if impact.impact_records.first.article%>
               <a href="<%=article_path(impact.impact_records.first.article)%>"><%=impact.impact_records.first.article.headline%></a>
             <%elsif impact.impact_records.first.project%>
-              <a href="<%=project_path(impact.impact_records.first.project)%>"><%=impact.impact_records.first.project.description%></a>
+              <a href="<%=project_path(impact.impact_records.first.project)%>"><%=impact.impact_records.first.project.name%></a>
             <%end%>
           </h5>
         </div>

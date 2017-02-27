@@ -10,7 +10,7 @@
     <%= f.text_field :url, label: 'URL', required: true %>
     <%= f.date_field :date, required: true, label: 'Online publication date' %>
     <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}), :label => "Reporter", :include_blank => true, required: true %>
-    <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}), :include_blank => true%>
+    <%= f.select :project_id, options_for_select(@projects.map{|project|[project.name, project.id]}), :include_blank => true%>
     <%= f.submit %>
   <% end %>
 </div>

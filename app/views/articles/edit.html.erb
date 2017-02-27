@@ -8,7 +8,7 @@
       <%= f.text_field :info %>
       <%= f.date_field :date, required: true %>
       <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}, @article.reporters.first.name), :label => "Reporter" %>
-      <%= f.select :project_id, options_for_select(@projects.map{|project|[project.description, project.id]}), :include_blank => true %>
+      <%= f.select :project_id, options_for_select(@projects.map{|project|[project.name, project.id]}), :include_blank => true %>
       <%= f.submit %>
     <% end %>
 </div>

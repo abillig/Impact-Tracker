@@ -29,7 +29,7 @@ class ImpactRecordsController < ApplicationController
     if params[:impact_record][:article]
       article = Article.find_by(headline: params[:impact_record][:article])
     elsif params[:impact_record][:project]
-      project = Project.find_by(description: params[:impact_record][:project])
+      project = Project.find_by(name: params[:impact_record][:project])
     end
 #prevent creation of impact if reporter didn't write article or isn't editor
       if params[:impact_record][:article] && current_user.is_reporter && article.reporter_names.include?(current_user.name) == false

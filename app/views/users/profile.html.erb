@@ -39,7 +39,7 @@
 									<%if impact.impact_records.first.article%>
 										<h4><a href=<%=article_path(impact.impact_records.first.article.id)%>><%=impact.impact_records.first.article.headline%></a></h4>
 									<%elsif impact.impact_records.first.project%>
-										<h4><a href=<%=project_path(impact.impact_records.first.project.id)%>><%=impact.impact_records.first.project.description%></a></h4>
+										<h4><a href=<%=project_path(impact.impact_records.first.project.id)%>><%=impact.impact_records.first.project.name%></a></h4>
 									<%end%>
 								<%end%>
 

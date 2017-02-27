@@ -1,0 +1,40 @@
+
+<%articles.each do |article_or_project|%>
+<%if article_or_project.class == Article %>
+  <%if article_or_project.publication == current_user.publication %>
+  <a href=<%=article_path(article_or_project.id)%>>
+  <div class="col-sm-4">
+    <div id="article_display_container">
+    <div id="article_search_article" class="panel panel-default">
+        <div class="panel-body">
+          <h4><%=article_or_project.headline%></h4>
+        <h5><%=article_or_project.reporters.pluck('name').uniq.first%></h5>
+        <div id="impact_count">
+          <%=article_or_project.impact_records.length%>
+          <%=article_or_project.impact_records.length > 1 ? "Impacts" : "Impact"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+<%end%>
+<%elsif article_or_project.class == Project%>
+  <a href=<%=project_path(article_or_project.id)%>>
+  <div class="col-sm-4">
+    <div id="article_display_container">
+    <div id="article_search_article" class="panel panel-default">
+        <div class="panel-body project">
+          <h4><%=article_or_project.name%></h4>
+        <div id="impact_count" style="color:white;">
+          <%=article_or_project.impact_records.length%>
+          <%=article_or_project.impact_records.length > 1 ? "Impacts" : "Impact"%>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </a>
+<%end%>
+
+<%end%>

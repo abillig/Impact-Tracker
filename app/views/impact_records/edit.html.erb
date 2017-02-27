@@ -4,7 +4,7 @@
     <%if @impact_record.article%>
       <%= f.text_field :article, label: 'Story/Project that led to the impact', value: @article.headline, readonly: true%>
     <%elsif @impact_record.project%>
-      <%= f.text_field :project, label: 'Story/Project that led to the impact', value: @project.description, readonly: true%>
+      <%= f.text_field :project, label: 'Story/Project that led to the impact', value: @project.name, readonly: true%>
     <%end%>
       <%= f.select(:impact_type) do %>
         <% @impact_types.each do |impact_type| -%>

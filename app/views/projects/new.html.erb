@@ -2,7 +2,9 @@
   <h1> Add a Project </h1>
 
   <%= bootstrap_form_for @project do |f| %>
-    <%= f.text_field :description, required: true, label: 'Name' %>
+    <%= f.text_field :name, required: true, label: 'Name' %>
+    <%= f.text_field :url, required: false, label: 'URL' %>
+    <%= f.text_field :description, required: true, label: 'Description' %>
     <%= f.submit %>
   <% end %>
 </div>
