@@ -33,12 +33,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if params[:article][:reporters].blank?
+    if params[:reporter][:reporters].empty?
       flash[:notice] = "Please list a reporter."
       redirect_to new_article_path
     else
+
       article = Article.create({headline: params[:article][:headline],url: params[:article][:url],info: params[:article][:info],date: params[:article][:date], project_id: project_id_decider(params[:article][:project_id])})
-      article.reporters << Reporter.find_by(name: params[:article][:reporters])
+      params[:reporter][:reporters].each do |reporter_name|
+        article.reporters << Reporter.find_by(name: reporter_name)
+      end
       redirect_to article_path(article.id)
     end
   end
@@ -68,8 +71,14 @@ class ArticlesController < ApplicationController
     @article.headline = params[:article][:headline]
     @article.url = params[:article][:url]
     @article.info = params[:article][:info]
+    @article.reporters = []
+    params[:reporter][:reporters].each do |reporter_name|
+      @article.reporters << Reporter.find_by(name: reporter_name)
+    end
     @article.date = params[:article][:date]
-    @article.project = Project.find(params[:article][:project_id])
+    if params[:article][:project_id] != ""
+      @article.project = Project.find(params[:article][:project_id])
+    end
     @article.save
     redirect_to article_path(@article)
   end

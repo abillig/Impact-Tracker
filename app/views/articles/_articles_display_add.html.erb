@@ -12,7 +12,9 @@
           <div class="panel panel-default">
               <div class="panel-body">
                 <h4><%=article_or_project.headline%></h4>
-                <h5><%=article_or_project.reporters.pluck('name').uniq.first%></h5>
+                <%article_or_project.reporters.pluck('name').uniq.each do |reporter_name|%>
+                    <h5><%=reporter_name%></h5>
+                <%end%>
               </div>
             </div>
           </div>

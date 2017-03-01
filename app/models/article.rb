@@ -15,6 +15,10 @@ class Article < ApplicationRecord
     self.reporters.map{|reporter| reporter.name}.first
   end
 
+  def reporter_names
+    self.reporters.map{|reporter| reporter.name}
+  end
+
   def reporter_id
     self.reporters.map{|reporter| reporter.id}.first
   end

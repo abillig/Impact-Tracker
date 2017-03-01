@@ -1,7 +1,11 @@
 <div id="article_display_container">
   <div class="panel panel-default">
       <div class="panel-body"><h3><a href=<%=article_path(article.id)%>><%=article.headline%></a></h3>
-      <h4><a href=<%=reporter_path(article.reporter_id)%>><%=article.reporters.pluck('name').uniq.first%></a></h4></div>
+        <h4>
+          <%article.reporters.uniq.each do |reporter|%>
+            <a href=<%=reporter_path(reporter)%>><%=reporter.name%></a>
+        <%end%>
+        </h4>
         <div class="panel-footer">
           <div class="impact_count" id="impact_count<%=article.id%>" onclick='showImpactList(<%=article.id%>)'>
             <strong><%=article.impact_types.distinct.length%>

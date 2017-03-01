@@ -39,7 +39,9 @@
       <div id="article_search_article" class="panel panel-default">
           <div class="panel-body">
             <h4><%=article.headline%></h4>
-            <h5><%=article.reporters.pluck('name').uniq.first%></h5>
+            <%article.reporters.pluck('name').uniq.each do |reporter_name|%>
+                <h5><%=reporter_name%></h5>
+            <%end%>
             <div id="impact_count">
               <%=article.impact_records.length%>
               <%=article.impact_records.length > 1 ? "Impacts" : "Impact"%>

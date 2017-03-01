@@ -8,8 +8,9 @@
           <div id="article_search_article" class="panel panel-default">
               <div class="panel-body">
                 <h4><%=article_or_project.headline%></h4>
-              <h5><%=article_or_project.reporters.pluck('name').uniq.first%></h5>
-              <div id="impact_count">
+                <%article_or_project.reporters.pluck('name').uniq.each do |reporter_name|%>
+                    <h5><%=reporter_name%></h5>
+                <%end%>              <div id="impact_count">
                 <%=article_or_project.impact_records.length%>
                 <%=article_or_project.impact_records.length > 1 ? "Impacts" : "Impact"%>
               </div>

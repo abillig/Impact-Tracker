@@ -14,10 +14,19 @@
 <div id="article_header">
   <h1 id="article_headline_view"><a href=<%=@article.url%>><%=@article.headline%></a></h1>
   <div id="sub_head">
+    <%if @article.reporters.length > 1%>
+    <em>By
+      <%@article.reporters.each do |reporter|%>
+      <a href=<%=reporter_path(reporter)%>><%=reporter.name%></a>
+      <%end%>
+      | <%=@article.date.strftime("%B %d, %Y")%>
+    </em>
+    <%else%>
     <em>By
       <a href=<%=reporter_path(@article.reporter_id)%>><%=@article.reporter_name%></a>
       | <%=@article.date.strftime("%B %d, %Y")%>
     </em>
+    <%end%>
   </div>
 </div>
 

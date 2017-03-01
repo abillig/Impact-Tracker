@@ -7,7 +7,7 @@
       <%= f.text_field :url, required: true %>
       <%= f.text_field :info %>
       <%= f.date_field :date, required: true %>
-      <%= f.select :reporters, options_for_select(@reporters.map{|reporter|reporter.name}, @article.reporters.first.name), :label => "Reporter" %>
+      <%= collection_select(:reporter, :reporters, @reporters.map{|reporter|reporter}, :name, :name, { include_hidden: false}, {:multiple => true, :class => "form-control"}) %>
       <%= f.select :project_id, options_for_select(@projects.map{|project|[project.name, project.id]}), :include_blank => true %>
       <%= f.submit %>
     <% end %>
