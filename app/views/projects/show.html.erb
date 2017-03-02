@@ -7,6 +7,7 @@
     <%end%>
 <% end %>
 
+
 <div id="article_header">
   <%if @project.url == nil%>
     <h1 id="article_headline_view"><%=@project.name%></h1>
@@ -17,43 +18,9 @@
   <div id="sub_head">
   </div>
 
-<%if @project.articles.length > 0%>
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-        <%=render(:partial => './articles/article_display', :locals => { article: @project.articles[0] })%>
-    </div>
-    <%if @project.articles.length > 1 %>
-      <%@project.articles[1..@project.articles.length].each do |article|%>
-        <div class="item">
-          <%=render(:partial => './articles/article_display', :locals => { article: article })%>
-        </div>
-
-      <%end%>
-    <%end%>
-  </div>
-
-  <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-</div>
-
-<%end%>
-
-<br><br>
+  <%if @project.articles.length > 0  %>
+       <%= render partial: "./articles/articles_display", locals: { articles: @project.articles} %>
+   <%end%>
 
 
   <%@project.impacts.distinct.each do |impact|%>
