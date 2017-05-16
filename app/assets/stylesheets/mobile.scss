@@ -1,7 +1,7 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
 #navbar-desktop{
-  display: none;
+  display: block;
 }
 
 #navbar_mobile{
@@ -76,7 +76,7 @@
 }
 
 .help-tip{
-  display: none; 
+  display: none;
 }
 
 }

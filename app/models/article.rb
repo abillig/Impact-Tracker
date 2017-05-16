@@ -24,8 +24,8 @@ class Article < ApplicationRecord
   end
 
   def self.search(term)
-    article_results = Article.where("headline like ?", "%#{term}%") + Article.where("headline like ?", "%#{term.capitalize}%")
-    project_results = Project.where("name like ?", "%#{term}%") + Project.where("name like ?", "%#{term.capitalize}%")
+    article_results = Article.where("upper(headline) like ?", "%#{term.upcase}%") + Article.where("headline like ?", "%#{term.capitalize}%")
+    project_results = Project.where("upper(name) like ?", "%#{term.upcase}%") + Project.where("name like ?", "%#{term.capitalize}%")
     article_results.uniq + project_results.uniq
   end
 
